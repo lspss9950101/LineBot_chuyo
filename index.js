@@ -8,25 +8,28 @@ var bot = linebot({
 });
 
 var ops = ['U7883d95038ed8ffd76e5ea5be8f4b522'];
+var groups = ['Cb4311db4098c3c9d7f65043f95f68b9a'];
 var score = [0,0,0,0,0,0,0,0];
 var mission;
 
-fs.readFile("config.txt", function(err,data){
-	if(err)throw err;
-	if(data){
-		var jsonobj = JSON.parse(data);
-		var i;
-		score[0] = jsonobj.one;
-		score[1] = jsonobj.two;
-		score[2] = jsonobj.three;
-		score[3] = jsonobj.four;
-		score[4] = jsonobj.five;
-		score[5] = jsonobj.six;
-		score[6] = jsonobj.seven;
-		score[7] = jsonobj.eight;
-		mission = jsonobj.mission;
-	}
-});
+function read_score(){
+	fs.readFile("config.txt", function(err,data){
+		if(err)throw err;
+		if(data){
+			var jsonobj = JSON.parse(data);
+			score[0] = jsonobj.one;
+			score[1] = jsonobj.two;
+			score[2] = jsonobj.three;
+			score[3] = jsonobj.four;
+			score[4] = jsonobj.five;
+			score[5] = jsonobj.six;
+			score[6] = jsonobj.seven;
+			score[7] = jsonobj.eight;
+			mission = jsonobj.mission;
+		}
+	});
+}
+
 
 function save_score(){
 	var str = JSON.stringify({one:score[0], two:score[1], three:score[2], four:score[3],
@@ -43,11 +46,21 @@ function reset(){
 	save_score();
 }
 
+function get_rank(team){
+	var i, rank = 1;
+	for(i = 0; i < 8; i++)if(score[i] > score[team])rank++;
+	return rank;
+}
+
+read_score();
+
 bot.on('message', function(event) {
 	console.log(event);
 	if (msg = event.message.type = 'text'){
+		read_score();
 		var msg = event.message.text;
 		var sender = event.source.userId;
+		var group = event.source.groupId;
 		var tokens = msg.split(" ");
 		var cmd = tokens[0];
 		//Op commands
@@ -84,8 +97,14 @@ bot.on('message', function(event) {
 		}
 		//User commands
 		if(cmd.toUpperCase() === ('LIST')){
-			var rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
-						 "\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
+			var rp_msg;
+			if(ops.indexOf('sender') != -1)rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
+												  "\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
+			else if(group != null){
+				var index = groups.indexOf(group);
+				var list = '一二三四五六七八';
+				rp_msg = '第' + list[index] + '組:' + score[index] + '分\n目前位居第' + list[get_rank(index)] + '名';
+			}
 			event.reply(rp_msg);
 		}
 		if(cmd.toUpperCase() === ('MISSION')){
