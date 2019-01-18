@@ -4,7 +4,7 @@ var fs = require('fs');
 var bot = linebot({
   channelId: 'ChuyoBot',
   channelSecret: 'edaa7868492d56932953d60315a69312',
-  channelAccessToken: 'OvcIPb371b008DHCU0+9nHuT5kysxI5MwnCb1hlXKoO1OrZaKLaTaaM1jHbK70e4M+Jfd6Knr9zM93Wu/Hn+g8vFWwCgAn5edVd9sJ8eteGTmjL+VJQALQW2lYX2SKfOj7p55GUrpg9jO5EgcATk0QdB04t89/1O/w1cDnyilFU='
+  channelAccessToken: 'K4CGvZ4EnqBSawsF1mOgNUm/STJ0nPjvxfRzq4CPOD7AyRoklVvozMw9bBYya+VaM+Jfd6Knr9zM93Wu/Hn+g8vFWwCgAn5edVd9sJ8eteFmSEilIbWJ5Ev/Ucr5X8VHfEPFCwCPZx1ByR90h5M4dQdB04t89/1O/w1cDnyilFU='
 });
 
 var ops = ['U7883d95038ed8ffd76e5ea5be8f4b522'];
