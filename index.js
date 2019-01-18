@@ -13,9 +13,11 @@ var score = [0,0,0,0,0,0,0,0];
 var mission;
 
 function read_score(){
+	console.log('acquiring data');
 	fs.readFile("config.txt", function(err,data){
 		if(err)throw err;
 		if(data){
+			console.log('get data');
 			var jsonobj = JSON.parse(data);
 			score[0] = jsonobj.one;
 			score[1] = jsonobj.two;
@@ -57,7 +59,6 @@ read_score();
 bot.on('message', function(event) {
 	console.log(event);
 	if (msg = event.message.type = 'text'){
-		read_score();
 		var msg = event.message.text;
 		var sender = event.source.userId;
 		var group = event.source.groupId;
@@ -66,6 +67,7 @@ bot.on('message', function(event) {
 		//Op commands
 		if(ops.indexOf(sender) != -1){
 			if(cmd.toUpperCase() === ('ADD')){
+				read_score();
 				if(tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8){
 					score[tokens[1] - 1] += parseInt(tokens[2]);
 					save_score();
@@ -76,6 +78,7 @@ bot.on('message', function(event) {
 					console.log('error');
 				});
 			}else if(cmd.toUpperCase() === ('SET')){
+				read_score();
 				if(tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8){
 					score[tokens[1] - 1] = parseInt(tokens[2]);
 					save_score();
@@ -97,6 +100,7 @@ bot.on('message', function(event) {
 		}
 		//User commands
 		if(cmd.toUpperCase() === ('LIST')){
+			read_score();
 			var rp_msg;
 			if(ops.indexOf(sender) != -1)rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
 												"\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
@@ -108,6 +112,7 @@ bot.on('message', function(event) {
 			event.reply(rp_msg);
 		}
 		if(cmd.toUpperCase() === ('MISSION')){
+			read_score();
 			if(mission)event.reply("You got mission.");
 			else event.reply("Not the time.");
 		}
