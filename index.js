@@ -44,6 +44,7 @@ function reset(){
 }
 
 bot.on('message', function(event) {
+	console.log(event);
 	if (msg = event.message.type = 'text'){
 		var msg = event.message.text;
 		var sender = event.source.userId;
@@ -92,7 +93,6 @@ bot.on('message', function(event) {
 			else event.reply("Not the time.");
 		}
 	}
-  console.log(event);
 });
 
 const app = express();
