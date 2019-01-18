@@ -47,7 +47,7 @@ function reset(){
 }
 
 function get_rank(team){
-	var i, rank = 1;
+	var i, rank = 0;
 	for(i = 0; i < 8; i++)if(score[i] > score[team])rank++;
 	return rank;
 }
