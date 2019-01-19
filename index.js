@@ -8,13 +8,13 @@ var bot = linebot({
   channelAccessToken: 'K4CGvZ4EnqBSawsF1mOgNUm/STJ0nPjvxfRzq4CPOD7AyRoklVvozMw9bBYya+VaM+Jfd6Knr9zM93Wu/Hn+g8vFWwCgAn5edVd9sJ8eteFmSEilIbWJ5Ev/Ucr5X8VHfEPFCwCPZx1ByR90h5M4dQdB04t89/1O/w1cDnyilFU='
 });
 
-var ops = ['U7883d95038ed8ffd76e5ea5be8f4b522'];
-var groups = ['Cb4311db4098c3c9d7f65043f95f68b9a'];
+var ops = [];
+var groups = [];
 var score = [0,0,0,0,0,0,0,0];
-var mission;
+var mission = false;
 var awake_time = 0;
 
-function read_score(){
+function load_config(){
 	console.log('acquiring data');
 	fs.readFile("config.txt", function(err,data){
 		if(err)throw err;
@@ -31,6 +31,14 @@ function read_score(){
 			score[7] = jsonobj.eight;
 			mission = jsonobj.mission;
 		}
+	});
+	fs.readFile("ops.txt", function(err,data){
+		if(err)throw err;
+		if(data)ops = data.split(",");
+	});
+	fs.readFile("groups.txt", function(err,data){
+		if(err)throw err;
+		if(data)groups = data.split(",");
 	});
 }
 
@@ -59,17 +67,17 @@ function get_rank(team){
 read_score();
 
 bot.on('message', function(event) {
-	console.log(event);
 	if (msg = event.message.type = 'text'){
 		var msg = event.message.text;
 		var sender = event.source.userId;
 		var group = event.source.groupId;
 		var tokens = msg.split(" ");
 		var cmd = tokens[0];
+		console.log("Group:" + group + " User:" + sender + " msg:" + msg);
+		load_config();
 		//Op commands
 		if(ops.indexOf(sender) != -1){
 			if(cmd.toUpperCase() === ('ADD')){
-				read_score();
 				if(tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8){
 					score[tokens[1] - 1] += parseInt(tokens[2]);
 					save_score();
@@ -80,7 +88,6 @@ bot.on('message', function(event) {
 					console.log('error');
 				});
 			}else if(cmd.toUpperCase() === ('SET')){
-				read_score();
 				if(tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8){
 					score[tokens[1] - 1] = parseInt(tokens[2]);
 					save_score();
@@ -102,7 +109,6 @@ bot.on('message', function(event) {
 		}
 		//User commands
 		if(cmd.toUpperCase() === ('LIST')){
-			read_score();
 			var rp_msg;
 			if(ops.indexOf(sender) != -1)rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
 												"\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
@@ -114,7 +120,6 @@ bot.on('message', function(event) {
 			event.reply(rp_msg);
 		}
 		if(cmd.toUpperCase() === ('MISSION')){
-			read_score();
 			if(mission)event.reply("You got mission.");
 			else event.reply("Not the time.");
 		}
