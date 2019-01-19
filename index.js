@@ -1,5 +1,6 @@
 var linebot = require('linebot');
 var express = require('express');
+var http = require("http");
 var fs = require('fs');
 var bot = linebot({
   channelId: 'ChuyoBot',
@@ -127,3 +128,7 @@ var server = app.listen(process.env.PORT || 8080, function() {
   var port = server.address().port;
   console.log("App now running on port", port);
 });
+
+setInterval(function() {
+    http.get("http://chuyo-linebot.herokuapp.com");
+}, 300000);

@@ -6,6 +6,7 @@
     "express": "^4.16.4",
     "fs": "0.0.1-security",
     "git": "^0.1.5",
+    "http": "0.0.0",
     "linebot": "^1.4.1"
   },
   "devDependencies": {},
