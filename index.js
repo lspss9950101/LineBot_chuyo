@@ -32,11 +32,11 @@ function load_config(){
 			mission = jsonobj.mission;
 		}
 	});
-	fs.readFile("ops.txt", function(err,data){
+	fs.readFile("ops.txt", "utf8" ,function(err,data){
 		if(err)throw err;
 		if(data)ops = data.split(",");
 	});
-	fs.readFile("groups.txt", function(err,data){
+	fs.readFile("groups.txt", "utf8", function(err,data){
 		if(err)throw err;
 		if(data)groups = data.split(",");
 	});
