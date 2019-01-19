@@ -12,6 +12,7 @@ var ops = ['U7883d95038ed8ffd76e5ea5be8f4b522'];
 var groups = ['Cb4311db4098c3c9d7f65043f95f68b9a'];
 var score = [0,0,0,0,0,0,0,0];
 var mission;
+var awake_time = 0;
 
 function read_score(){
 	console.log('acquiring data');
@@ -131,4 +132,5 @@ var server = app.listen(process.env.PORT || 8080, function() {
 
 setInterval(function() {
     http.get("http://chuyo-linebot.herokuapp.com");
+	console.log('wake->' + awake_time++);
 }, 300000);
