@@ -64,7 +64,7 @@ function get_rank(team){
 	return rank;
 }
 
-read_score();
+load_config();
 
 bot.on('message', function(event) {
 	if (msg = event.message.type = 'text'){
