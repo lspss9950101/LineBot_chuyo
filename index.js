@@ -131,7 +131,8 @@ bot.on('message', function(event) {
 			event.message.content().then(function (content) {
 				var msg = {
 					type: 'image',
-					content: content
+					originalContentUrl:'https://cdn-images-1.medium.com/max/2000/1*WowYKqYoxZMG8yne2-tP5g.png',
+					previewImageUrl:'https://cdn-images-1.medium.com/max/2000/1*WowYKqYoxZMG8yne2-tP5g.png'
 				};
 			bot.push(groups[1], msg);
 			});
