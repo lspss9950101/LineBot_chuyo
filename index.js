@@ -106,11 +106,16 @@ bot.on('message', function(event) {
 							for(i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
 							for(i = 0; i < groups.length; i++)bot.push(groups[i], msg);
 							console.log(msg);
-						}else if(tokens[1].toUpperCase() === 'IMAGE'){	
+						}else if(tokens[1].toUpperCase() === 'IMAGE'){
+							var url = token[2].split('/');
+							for(i = 0; i < url.length; i++)if(url[i] == 'd'){
+								url = url[i+1];
+								break;
+							}
 							msg = {
 								type: 'image',
-								originalContentUrl: tokens[2],
-								previewImageUrl: tokens[2]
+								originalContentUrl: 'https://drive.google.com/uc?export=view&id=' + url,
+								previewImageUrl: 'https://drive.google.com/uc?export=view&id=' + url
 							}
 							for(i = 0; i < groups.length; i++)bot.push(groups[i], msg);
 						}
