@@ -104,7 +104,7 @@ bot.on('message', function(event) {
 						if(tokens[1].toUpperCase() === 'TEXT'){
 							msg = "";
 							for(i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
-							for(group in groups)bot.push(groups[1], '123');
+							for(var group in groups)bot.push(group, msg);
 							console.log(msg);
 						}else if(tokens[1].toUpperCase() === 'IMAGE'){	
 							msg = {
@@ -112,7 +112,7 @@ bot.on('message', function(event) {
 								originalContentUrl: tokens[2],
 								previewImageUrl: tokens[2]
 							}
-							for(group in groups)bot.push(group, msg);
+							for(var group in groups)bot.push(group, msg);
 						}
 					}
 				}
