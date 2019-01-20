@@ -128,7 +128,9 @@ bot.on('message', function(event) {
 		}
 	}else if(event.message.type == 'image'){
 		if(ops.indexOf(event.source.userId) != -1){
-			var bytes = bot.getMessageContent(event.message.id);
+			var bytes = event.message.content().then(function (content) {
+				console.log(content.toString('base64'));
+			});
 			console.log(bytes);
 			var msg = {
 				type: 'image',
