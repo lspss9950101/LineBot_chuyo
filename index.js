@@ -104,7 +104,7 @@ bot.on('message', function(event) {
 						if(tokens[1].toUpperCase() === 'TEXT'){
 							msg = "";
 							for(i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
-							for(var group in groups)bot.push(group, msg);
+							for(i = 0; i < groups.length; i++)bot.push(groups[i], msg);
 							console.log(msg);
 						}else if(tokens[1].toUpperCase() === 'IMAGE'){	
 							msg = {
