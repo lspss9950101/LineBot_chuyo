@@ -72,57 +72,59 @@ bot.on('message', function(event) {
 		var msg = event.message.text;
 		var sender = event.source.userId;
 		var group = event.source.groupId;
-		var tokens = msg.split(" ");
-		var cmd = tokens[0];
 		console.log("Group:" + group + " User:" + sender + " msg:" + msg);
 		load_config();
-		//Op commands
-		if(ops.indexOf(sender) != -1){
-			if(cmd.toUpperCase() === ('ADD')){
-				if(tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8){
-					score[tokens[1] - 1] += parseInt(tokens[2]);
-					save_score();
-					event.reply('Added ' + tokens[2] + ' points to ' + tokens[1] + '.');
-				}else event.reply('Invalid Command.\nadd team_number score').then(function(data){
-					console.log(sender + ' added ' + tokens[2] + ' points to team ' + tokens[1] + '.');
-				}).catch(function(error){
-					console.log('error');
-				});
-			}else if(cmd.toUpperCase() === ('SET')){
-				if(tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8){
-					score[tokens[1] - 1] = parseInt(tokens[2]);
-					save_score();
-					event.reply('Set ' + tokens[2] + ' points to team ' + tokens[1]);
-				}else event.reply('Invalid Command.\nset team_number score').then(function(data){
-					console.log(sender + ' set team ' + tokens[1] + ' ' + tokens[2] + ' points.');
-				}).catch(function(error){
-					console.log('error'); 
-				});
-			}else if(cmd.toUpperCase() === ('RESET')){
-				reset();
-			}else if(cmd.toUpperCase() === ('MISSION_EN')){
-				if(tokens.length == 2){
-					if(tokens[1].toUpperCase() === ('TRUE'))mission = true;
-					else if(tokens[1].toUpperCase() === ('FALSE'))mission = false;
-					save_score();
-				}
-			}				
-		}
-		//User commands
-		if(cmd.toUpperCase() === ('LIST')){
-			var rp_msg;
-			if(ops.indexOf(sender) != -1)rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
-												"\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
-			else if(group != null){
-				var index = groups.indexOf(group);
-				var list = '一二三四五六七八';
-				rp_msg = '第' + list[index] + '組:' + score[index] + '分\n目前位居第' + list[get_rank(index)] + '名';
+		if(msg != null){
+			var tokens = msg.split(" ");
+			var cmd = tokens[0];
+			//Op commands
+			if(ops.indexOf(sender) != -1){
+				if(cmd.toUpperCase() === ('ADD')){
+					if(tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8){
+						score[tokens[1] - 1] += parseInt(tokens[2]);
+						save_score();
+						event.reply('Added ' + tokens[2] + ' points to ' + tokens[1] + '.');
+					}else event.reply('Invalid Command.\nadd team_number score').then(function(data){
+						console.log(sender + ' added ' + tokens[2] + ' points to team ' + tokens[1] + '.');
+					}).catch(function(error){
+						console.log('error');
+					});
+				}else if(cmd.toUpperCase() === ('SET')){
+					if(tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8){
+						score[tokens[1] - 1] = parseInt(tokens[2]);
+						save_score();
+						event.reply('Set ' + tokens[2] + ' points to team ' + tokens[1]);
+					}else event.reply('Invalid Command.\nset team_number score').then(function(data){
+						console.log(sender + ' set team ' + tokens[1] + ' ' + tokens[2] + ' points.');
+					}).catch(function(error){
+						console.log('error'); 
+					});
+				}else if(cmd.toUpperCase() === ('RESET')){
+					reset();
+				}else if(cmd.toUpperCase() === ('MISSION_EN')){
+					if(tokens.length == 2){
+						if(tokens[1].toUpperCase() === ('TRUE'))mission = true;
+						else if(tokens[1].toUpperCase() === ('FALSE'))mission = false;
+						save_score();
+					}
+				}				
 			}
-			event.reply(rp_msg);
-		}
-		if(cmd.toUpperCase() === ('MISSION')){
-			if(mission)event.reply("You got mission.");
-			else event.reply("Not the time.");
+			//User commands
+			if(cmd.toUpperCase() === ('LIST')){
+				var rp_msg;
+				if(ops.indexOf(sender) != -1)rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
+													"\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
+				else if(group != null){
+					var index = groups.indexOf(group);	
+					var list = '一二三四五六七八';
+					rp_msg = '第' + list[index] + '組:' + score[index] + '分\n目前位居第' + list[get_rank(index)] + '名';
+				}	
+				event.reply(rp_msg);
+			}
+			if(cmd.toUpperCase() === ('MISSION')){
+				if(mission)event.reply("You got mission.");
+				else event.reply("Not the time.");
+			}
 		}
 	}
 });
