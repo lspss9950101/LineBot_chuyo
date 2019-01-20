@@ -142,15 +142,15 @@ bot.on('message', function(event) {
 			//User commands
 			if(cmd.toUpperCase() === ('!LIST')){
 				var rp_msg;
-				if(ops.indexOf(sender) != -1 && group == null)rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
+				if(ops.indexOf(sender) != -1 && group == undefined)rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
 													"\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
-				else if(group != null){
+				else if(group != undefined){
 					var index = groups.indexOf(group);	
 					var list = '一二三四五六七八';
 					rp_msg = '第' + list[index] + '組:' + score[index] + '分\n目前位居第' + list[get_rank(index)] + '名';
 				}
 				event.reply(rp_msg);
-			}else if(cmd.toUpperCase() === ('!HELP'))list_command(event, (ops.indexOf(sender) == -1 && group == null));
+			}else if(cmd.toUpperCase() === ('!HELP'))list_command(event, (ops.indexOf(sender) == -1 && group == undefined));
 		}
 	}
 });
