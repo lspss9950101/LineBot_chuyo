@@ -131,9 +131,9 @@ bot.on('message', function(event) {
 			var bytes = bot.getMessageContent(event.message.id);
 			var msg = {
 				type: 'image',
-				image: 'bytes'
+				image: bytes
 			};
-			bot.push(groups[1], '123');
+			bot.push(groups[1], msg);
 		}
 	}
 });
