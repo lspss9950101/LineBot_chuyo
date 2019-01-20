@@ -112,7 +112,7 @@ bot.on('message', function(event) {
 								originalContentUrl: tokens[2],
 								previewImageUrl: tokens[2]
 							}
-							for(var group in groups)bot.push(group, msg);
+							for(i = 0; i < groups.length; i++)bot.push(groups[i], msg);
 						}
 					}
 				}
