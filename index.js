@@ -107,7 +107,7 @@ bot.on('message', function(event) {
 							for(i = 0; i < groups.length; i++)bot.push(groups[i], msg);
 							console.log(msg);
 						}else if(tokens[1].toUpperCase() === 'IMAGE'){
-							var url = token[2].split('/');
+							var url = tokens[2].split('/');
 							for(i = 0; i < url.length; i++)if(url[i] == 'd'){
 								url = url[i+1];
 								break;
