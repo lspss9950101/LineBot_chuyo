@@ -127,7 +127,14 @@ bot.on('message', function(event) {
 			}
 		}
 	}else if(event.message.type == 'image'){
-		var bytes = bot.getMessageContent(event.message.id);
+		if(ops.indexOf(event.source.userId) != -1){
+			var bytes = bot.getMessageContent(event.message.id);
+			var msg = {
+				type: 'image',
+				image: 'bytes'
+			};
+			bot.push(groups[0], msg);
+		}
 	}
 });
 
