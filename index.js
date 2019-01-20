@@ -11,7 +11,6 @@ var bot = linebot({
 var ops = [];
 var groups = [];
 var score = [0,0,0,0,0,0,0,0];
-var mission = false;
 var awake_time = 0;
 
 function load_config(){
@@ -29,7 +28,6 @@ function load_config(){
 			score[5] = jsonobj.six;
 			score[6] = jsonobj.seven;
 			score[7] = jsonobj.eight;
-			mission = jsonobj.mission;
 		}
 	});
 	fs.readFile("ops.txt", "utf8" ,function(err,data){
@@ -45,8 +43,7 @@ function load_config(){
 
 function save_score(){
 	var str = JSON.stringify({one:score[0], two:score[1], three:score[2], four:score[3],
-							  five:score[4], six:score[5], seven:score[6], eight:score[7],
-							  mission:mission});
+							  five:score[4], six:score[5], seven:score[6], eight:score[7]});
 	fs.writeFile('config.txt', str, function(err){
 		if(err)throw err;
 	});
@@ -101,13 +98,23 @@ bot.on('message', function(event) {
 					});
 				}else if(cmd.toUpperCase() === ('RESET')){
 					reset();
-				}else if(cmd.toUpperCase() === ('MISSION_EN')){
-					if(tokens.length == 2){
-						if(tokens[1].toUpperCase() === ('TRUE'))mission = true;
-						else if(tokens[1].toUpperCase() === ('FALSE'))mission = false;
-						save_score();
+				}else if(cmd.toUpperCase() === ('BROADCAST')){
+					if(tokens.length > 2){
+						var msg,i;
+						switch(tokens[1].toUpperCase()){
+							'TEXT':
+								for(i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
+								bot.multicast(groups, msg);
+							'IMAGE':
+								msg = {
+									type: 'image',
+									originalContentUrl: tokens[2],
+									previewImageUrl: tokens[2]
+								}
+								bot.multicast(groups, msg);
+						}
 					}
-				}				
+				}
 			}
 			//User commands
 			if(cmd.toUpperCase() === ('LIST')){
@@ -125,17 +132,6 @@ bot.on('message', function(event) {
 				if(mission)event.reply("You got mission.");
 				else event.reply("Not the time.");
 			}
-		}
-	}else if(event.message.type == 'image'){
-		if(ops.indexOf(event.source.userId) != -1){
-			event.message.content().then(function (content) {
-				var msg = {
-					type: 'image',
-					originalContentUrl:'https://cdn-images-1.medium.com/max/2000/1*WowYKqYoxZMG8yne2-tP5g.png',
-					previewImageUrl:'https://cdn-images-1.medium.com/max/2000/1*WowYKqYoxZMG8yne2-tP5g.png'
-				};
-			bot.push(groups[1], msg);
-			});
 		}
 	}
 });
