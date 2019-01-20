@@ -68,7 +68,7 @@ load_config();
 
 bot.on('message', function(event) {
 	console.log(event);
-	if (msg = event.message.type = 'text'){
+	if (event.message.type == 'text'){
 		var msg = event.message.text;
 		var sender = event.source.userId;
 		var group = event.source.groupId;
@@ -118,7 +118,7 @@ bot.on('message', function(event) {
 					var index = groups.indexOf(group);	
 					var list = '一二三四五六七八';
 					rp_msg = '第' + list[index] + '組:' + score[index] + '分\n目前位居第' + list[get_rank(index)] + '名';
-				}	
+				}
 				event.reply(rp_msg);
 			}
 			if(cmd.toUpperCase() === ('MISSION')){
@@ -126,6 +126,8 @@ bot.on('message', function(event) {
 				else event.reply("Not the time.");
 			}
 		}
+	}else if(event.message.type == 'image'){
+		console.log('image');
 	}
 });
 
