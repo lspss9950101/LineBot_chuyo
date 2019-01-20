@@ -100,18 +100,17 @@ bot.on('message', function(event) {
 					reset();
 				}else if(cmd.toUpperCase() === ('BROADCAST')){
 					if(tokens.length > 2){
-						var msg,i;
-						switch(tokens[1].toUpperCase()){
-							'TEXT':
-								for(i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
-								bot.multicast(groups, msg);
-							'IMAGE':
-								msg = {
-									type: 'image',
-									originalContentUrl: tokens[2],
-									previewImageUrl: tokens[2]
-								}
-								bot.multicast(groups, msg);
+						if(tokens[1].toUpperCase() == 'TEXT'){
+							var msg,i;
+							for(i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
+							bot.multicast(groups, msg);
+						}else if(tokens[1].toUpperCase() === 'IMAGE'){	
+							msg = {
+								type: 'image',
+								originalContentUrl: tokens[2],
+								previewImageUrl: tokens[2]
+							}
+							bot.multicast(groups, msg);
 						}
 					}
 				}
