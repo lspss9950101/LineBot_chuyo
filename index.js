@@ -61,6 +61,23 @@ function get_rank(team){
 	return rank;
 }
 
+function list_command(event, hasPermission){
+	if(hasPermission)command_list = '>List: list all teams\' scores.\n\
+									 usage:!List\n\
+									 >Add: add points to a team.\n\
+									 usage:!Add <team> <points>\n\
+									 >Set: set a team\'s points.\n\
+									 usage:!Set <team> <Points>\n\
+									 >Reset: reset all teams\' scores.\n\
+									 usage:!Reset\n\
+									 >Broadcast: broadcast message to all teams.\n\
+									 usage(text):!Broadcast text <message>\n\
+									 usage(image):!Broadcast image <url>';
+	else command_list = '>List: list team\'s score and rank.\n\
+						 usage:!List';
+	event.reply(command_list);
+}
+
 load_config();
 
 bot.on('message', function(event) {
@@ -76,7 +93,7 @@ bot.on('message', function(event) {
 			var cmd = tokens[0];
 			//Op commands
 			if(ops.indexOf(sender) != -1){
-				if(cmd.toUpperCase() === ('ADD')){
+				if(cmd.toUpperCase() === ('!ADD')){
 					if(tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8){
 						score[tokens[1] - 1] += parseInt(tokens[2]);
 						save_score();
@@ -86,7 +103,7 @@ bot.on('message', function(event) {
 					}).catch(function(error){
 						console.log('error');
 					});
-				}else if(cmd.toUpperCase() === ('SET')){
+				}else if(cmd.toUpperCase() === ('!SET')){
 					if(tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8){
 						score[tokens[1] - 1] = parseInt(tokens[2]);
 						save_score();
@@ -96,9 +113,9 @@ bot.on('message', function(event) {
 					}).catch(function(error){
 						console.log('error'); 
 					});
-				}else if(cmd.toUpperCase() === ('RESET')){
+				}else if(cmd.toUpperCase() === ('!RESET')){
 					reset();
-				}else if(cmd.toUpperCase() === ('BROADCAST')){
+				}else if(cmd.toUpperCase() === ('!BROADCAST')){
 					if(tokens.length > 2){
 						var msg, i;
 						if(tokens[1].toUpperCase() === 'TEXT'){
@@ -123,7 +140,7 @@ bot.on('message', function(event) {
 				}
 			}
 			//User commands
-			if(cmd.toUpperCase() === ('LIST')){
+			if(cmd.toUpperCase() === ('!LIST')){
 				var rp_msg;
 				if(ops.indexOf(sender) != -1)rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
 													"\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
@@ -133,10 +150,6 @@ bot.on('message', function(event) {
 					rp_msg = '第' + list[index] + '組:' + score[index] + '分\n目前位居第' + list[get_rank(index)] + '名';
 				}
 				event.reply(rp_msg);
-			}
-			if(cmd.toUpperCase() === ('MISSION')){
-				if(mission)event.reply("You got mission.");
-				else event.reply("Not the time.");
 			}
 		}
 	}
