@@ -150,7 +150,7 @@ bot.on('message', function(event) {
 					rp_msg = '第' + list[index] + '組:' + score[index] + '分\n目前位居第' + list[get_rank(index)] + '名';
 				}
 				event.reply(rp_msg);
-			}else if(cmd.toUpperCase() === ('!HELP'))list_command(event, (ops.indexOf(sender) == -1 && group == undefined));
+			}else if(cmd.toUpperCase() === ('!HELP'))list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
 		}
 	}
 });
