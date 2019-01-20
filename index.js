@@ -127,7 +127,7 @@ bot.on('message', function(event) {
 			}
 		}
 	}else if(event.message.type == 'image'){
-		console.log('image');
+		var bytes = bot.getMessageContent(event.message.id);
 	}
 });
 
