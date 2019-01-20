@@ -133,7 +133,7 @@ bot.on('message', function(event) {
 			});
 			var msg = {
 				type: 'image',
-				content: bytes
+				
 			};
 			bot.push(groups[1], msg);
 		}
