@@ -131,7 +131,6 @@ bot.on('message', function(event) {
 			event.message.content().then(function (content) {
 				console.log(content.toString('base64'));
 			});
-			console.log(bytes);
 			var msg = {
 				type: 'image',
 				content: bytes
