@@ -103,14 +103,14 @@ bot.on('message', function(event) {
 						if(tokens[1].toUpperCase() === 'TEXT'){
 							var msg,i;
 							for(i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
-							bot.multicast(groups, msg);
+							for(group in groups)bot.push(group, msg);
 						}else if(tokens[1].toUpperCase() === 'IMAGE'){	
 							msg = {
 								type: 'image',
 								originalContentUrl: tokens[2],
 								previewImageUrl: tokens[2]
 							}
-							bot.multicast(groups, msg);
+							for(group in groups)bot.push(group, msg);
 						}
 					}
 				}
