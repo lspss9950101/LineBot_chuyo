@@ -100,7 +100,7 @@ bot.on('message', function(event) {
 					reset();
 				}else if(cmd.toUpperCase() === ('BROADCAST')){
 					if(tokens.length > 2){
-						if(tokens[1].toUpperCase() == 'TEXT'){
+						if(tokens[1].toUpperCase() === 'TEXT'){
 							var msg,i;
 							for(i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
 							bot.multicast(groups, msg);
