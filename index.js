@@ -63,13 +63,13 @@ function get_rank(team){
 
 function list_command(event, hasPermission){
 	if(hasPermission)command_list = '>List: list all teams\' scores.\n' +
-									'usage:!List\n' +
+									'usage:!List\n' + '\n' +
 									'>Add: add points to a team.\n' +
-									'usage:!Add <team> <points>\n' +
+									'usage:!Add <team> <points>\n' + '\n' +
 									'>Set: set a team\'s points.\n' +
-									'usage:!Set <team> <Points>\n' +
+									'usage:!Set <team> <Points>\n' + '\n' +
 									'>Reset: reset all teams\' scores.\n' +
-									'usage:!Reset\n' +
+									'usage:!Reset\n' + '\n' +
 									'>Broadcast: broadcast message to all teams.\n' +
 									'usage(text):!Broadcast text <message>\n' +
 									'usage(image):!Broadcast image <url>';
