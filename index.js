@@ -100,8 +100,9 @@ bot.on('message', function(event) {
 					reset();
 				}else if(cmd.toUpperCase() === ('BROADCAST')){
 					if(tokens.length > 2){
+						var msg;
 						if(tokens[1].toUpperCase() === 'TEXT'){
-							var msg,i;
+							msg = "",i;
 							for(i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
 							for(group in groups)bot.push(group, msg);
 						}else if(tokens[1].toUpperCase() === 'IMAGE'){	
