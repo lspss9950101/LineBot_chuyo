@@ -131,7 +131,7 @@ bot.on('message', function(event) {
 			var bytes = bot.getMessageContent(event.message.id);
 			var msg = {
 				type: 'image',
-				id: event.message.id
+				originalContentUrl: 'https://swf.com.tw/images/books/IoT/webcam_face_detection.png'
 			};
 			bot.push(groups[1], msg);
 		}
