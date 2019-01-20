@@ -67,6 +67,7 @@ function get_rank(team){
 load_config();
 
 bot.on('message', function(event) {
+	console.log(event);
 	if (msg = event.message.type = 'text'){
 		var msg = event.message.text;
 		var sender = event.source.userId;
