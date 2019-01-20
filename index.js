@@ -130,8 +130,8 @@ bot.on('message', function(event) {
 		if(ops.indexOf(event.source.userId) != -1){
 			var bytes = bot.getMessageContent(event.message.id);
 			var msg = {
-				type: 'text',
-				text: '123'
+				type: 'image',
+				id: event.message.id
 			};
 			bot.push(groups[1], msg);
 		}
