@@ -213,7 +213,7 @@ function generate_list_ops() {
 			}
 		}
 	};
-	var append;
+	var append = [];
 	for (var i = 0; i < 11; i++) {
 		var status;
 		var list = "0一二三四五六七八"
