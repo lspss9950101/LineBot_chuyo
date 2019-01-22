@@ -396,106 +396,103 @@ function generate_list_ops() {
 }
 
 function list_command(event, hasPermission) {
-	if (hasPermission) {
-		command_list = {
-			"type": "flex",
-			"altText": "this is a flex message",
-			"contents": {
-				"type": "bubble",
-				"styles": {
-					"footer": {
-						"separator": true
-					}
-				},
-				"body": {
-					"type": "box",
-					"layout": "vertical",
-					"contents": [
-						{
-							"type": "text",
-							"text": "Commands：",
-							"weight": "bold",
-							"color": "#06a862",
-							"size": "xl"
-						},
-						{
-							"type": "box",
-							"layout": "vertical",
-							"margin": "xxl",
-							"spacing": "sm",
-							"contents": [
-								{
-									"type": "text",
-									"text": "List the status.",
-									"size": "lg",
-									"weight": "bold"
-								},
-								{
-									"type": "text",
-									"text": "usage : !list",
-									"size": "lg"
-								},
-								{
-									"type": "separator",
-									"margin": "xl"
-								},
-
-								{
-									"type": "text",
-									"text": "Set the occupier of a region.",
-									"size": "lg",
-									"weight": "bold"
-								},
-								{
-									"type": "text",
-									"text": "usage : !set <rigion> <team>",
-									"size": "lg"
-								},
-								{
-									"type": "separator",
-									"margin": "xl"
-								},
-
-								{
-									"type": "text",
-									"text": "Clear the status of a region.",
-									"size": "lg",
-									"weight": "bold"
-								},
-								{
-									"type": "text",
-									"text": "usage : !clear <rigion>",
-									"size": "lg"
-								},
-								{
-									"type": "separator",
-									"margin": "xl"
-								},
-
-								{
-									"type": "text",
-									"text": "Reset the status of all rigions.",
-									"size": "lg",
-									"weight": "bold"
-								},
-								{
-									"type": "text",
-									"text": "usage : !reset",
-									"size": "lg"
-								},
-								{
-									"type": "separator",
-									"margin": "xl"
-								}
-							]
-						}
-					]
+	if (hasPermission) command_list = {
+		"type": "flex",
+		"altText": "this is a flex message",
+		"contents": {
+			"type": "bubble",
+			"styles": {
+				"footer": {
+					"separator": true
 				}
+			},
+			"body": {
+				"type": "box",
+				"layout": "vertical",
+				"contents": [
+					{
+						"type": "text",
+						"text": "Commands：",
+						"weight": "bold",
+						"color": "#06a862",
+						"size": "xl"
+					},
+					{
+						"type": "box",
+						"layout": "vertical",
+						"margin": "xxl",
+						"spacing": "sm",
+						"contents": [
+							{
+								"type": "text",
+								"text": "List the status.",
+								"size": "lg",
+								"weight": "bold"
+							},
+							{
+								"type": "text",
+								"text": "usage : !list",
+								"size": "lg"
+							},
+							{
+								"type": "separator",
+								"margin": "xl"
+							},
+
+							{
+								"type": "text",
+								"text": "Set the occupier of a region.",
+								"size": "lg",
+								"weight": "bold"
+							},
+							{
+								"type": "text",
+								"text": "usage : !set <rigion> <team>",
+								"size": "lg"
+							},
+							{
+								"type": "separator",
+								"margin": "xl"
+							},
+
+							{
+								"type": "text",
+								"text": "Clear the status of a region.",
+								"size": "lg",
+								"weight": "bold"
+							},
+							{
+								"type": "text",
+								"text": "usage : !clear <rigion>",
+								"size": "lg"
+							},
+							{
+								"type": "separator",
+								"margin": "xl"
+							},
+
+							{
+								"type": "text",
+								"text": "Reset the status of all rigions.",
+								"size": "lg",
+								"weight": "bold"
+							},
+							{
+								"type": "text",
+								"text": "usage : !reset",
+								"size": "lg"
+							},
+							{
+								"type": "separator",
+								"margin": "xl"
+							}
+						]
+					}
+				]
 			}
 		}
 	};
-}else {
-	command_list = {
+	else command_list = {
 		"type": "flex",
 		"altText": "this is a flex message",
 		"contents": [{
@@ -559,7 +556,6 @@ function list_command(event, hasPermission) {
 			}
 		}]
 	};
-	event.reply(command_list);
 }
 
 load_config();
