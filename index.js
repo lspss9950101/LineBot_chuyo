@@ -492,7 +492,7 @@ function list_command(event, hasPermission) {
 	else command_list = {
 		"type": "flex",
 		"altText": "this is a flex message",
-		"contents": {
+		"contents": [{
 			"type": "bubble",
 			"styles": {
 				"footer": {
@@ -505,9 +505,9 @@ function list_command(event, hasPermission) {
 				"contents": [
 					{
 						"type": "text",
-						"text": "Commands：",
+						"text": "指令：",
 						"weight": "bold",
-						"color": "#06a862",
+						"color": "#1DB446",
 						"size": "xl"
 					},
 					{
@@ -518,68 +518,45 @@ function list_command(event, hasPermission) {
 						"contents": [
 							{
 								"type": "text",
-								"text": "List the status.",
+								"text": "列出所有區域的占領狀態",
 								"size": "lg",
 								"weight": "bold"
 							},
 							{
 								"type": "text",
-								"text": "usage : !list",
+								"text": "用法 : !狀態",
 								"size": "lg"
 							},
 							{
 								"type": "separator",
 								"margin": "xl"
 							},
-
+							
 							{
 								"type": "text",
-								"text": "Set the occupier of a region.",
+								"text": "擲骰子",
 								"size": "lg",
 								"weight": "bold"
 							},
 							{
 								"type": "text",
-								"text": "usage : !set <rigion> <team>",
+								"text": "用法 : !骰子",
 								"size": "lg"
 							},
 							{
 								"type": "separator",
 								"margin": "xl"
-							},
-
-							{
-								"type": "text",
-								"text": "Clear the status of a region.",
-								"size": "lg",
-								"weight": "bold"
-							},
-							{
-								"type": "text",
-								"text": "usage : !clear <rigion>",
-								"size": "lg"
-							},
-							{
-								"type": "separator",
-								"margin": "xl"
-							},
-
-							{
-								"type": "text",
-								"text": "Reset the status of all rigions.",
-								"size": "lg",
-								"weight": "bold"
-							},
-							{
-								"type": "text",
-								"text": "usage : !reset",
-								"size": "lg"
 							}
 						]
 					}
 				]
 			}
-		}
+		}]
+
+
+
+
+
 	};
 	event.reply(command_list);
 }
