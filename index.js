@@ -189,7 +189,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[0] == 0 ? "尚未被占領" : "被第" + list[occupation[0]+1] + "組佔領"),
+							"text": (occupation[0] == 0 ? "尚未被占領" : "被第" + list[occupation[0] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -209,7 +209,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[1] == 0 ? "尚未被占領" : "被第" + list[occupation[1]+1] + "組佔領"),
+							"text": (occupation[1] == 0 ? "尚未被占領" : "被第" + list[occupation[1] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -229,7 +229,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[2] == 0 ? "尚未被占領" : "被第" + list[occupation[2]+1] + "組佔領"),
+							"text": (occupation[2] == 0 ? "尚未被占領" : "被第" + list[occupation[2] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -249,7 +249,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[3] == 0 ? "尚未被占領" : "被第" + list[occupation[3]+1] + "組佔領"),
+							"text": (occupation[3] == 0 ? "尚未被占領" : "被第" + list[occupation[3] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -269,7 +269,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[4] == 0 ? "尚未被占領" : "被第" + list[occupation[4]+1] + "組佔領"),
+							"text": (occupation[4] == 0 ? "尚未被占領" : "被第" + list[occupation[4] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -289,7 +289,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[5] == 0 ? "尚未被占領" : "被第" + list[occupation[5]+1] + "組佔領"),
+							"text": (occupation[5] == 0 ? "尚未被占領" : "被第" + list[occupation[5] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -309,7 +309,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[6] == 0 ? "尚未被占領" : "被第" + list[occupation[6]+1] + "組佔領"),
+							"text": (occupation[6] == 0 ? "尚未被占領" : "被第" + list[occupation[6] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -329,7 +329,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[7] == 0 ? "尚未被占領" : "被第" + list[occupation[7]+1] + "組佔領"),
+							"text": (occupation[7] == 0 ? "尚未被占領" : "被第" + list[occupation[7] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -349,7 +349,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[8] == 0 ? "尚未被占領" : "被第" + list[occupation[8]+1] + "組佔領"),
+							"text": (occupation[8] == 0 ? "尚未被占領" : "被第" + list[occupation[8] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -369,7 +369,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[9] == 0 ? "尚未被占領" : "被第" + list[occupation[9]+1] + "組佔領"),
+							"text": (occupation[9] == 0 ? "尚未被占領" : "被第" + list[occupation[9] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -389,7 +389,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[10] == 0 ? "尚未被占領" : "被第" + list[occupation[10]+1] + "組佔領"),
+							"text": (occupation[10] == 0 ? "尚未被占領" : "被第" + list[occupation[10] + 1] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -651,6 +651,7 @@ bot.on('message', function (event) {
 			if (cmd == '!詳情') event.reply(generate_list_ops());
 		}
 	}
+}
 );
 
 const app = express();
