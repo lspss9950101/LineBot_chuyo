@@ -239,6 +239,7 @@ function generate_list_ops() {
 			}]
 		}]);
 	}
+	console.log(append);
 	msg.contents.body.contents.push(append);
 	return msg;
 }
