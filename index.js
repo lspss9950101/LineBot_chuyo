@@ -394,19 +394,167 @@ function generate_list_ops(){
 }
 
 function list_command(event, hasPermission){
-	if(hasPermission)command_list = '>List: list all teams\' scores.\n' +
-									'usage:!List\n' + '\n' +
-									'>Add: add points to a team.\n' +
-									'usage:!Add <team> <points>\n' + '\n' +
-									'>Set: set a team\'s points.\n' +
-									'usage:!Set <team> <Points>\n' + '\n' +
-									'>Reset: reset all teams\' scores.\n' +
-									'usage:!Reset\n' + '\n' +
-									'>Broadcast: broadcast message to all teams.\n' +
-									'usage(text):!Broadcast text <message>\n' +
-									'usage(image):!Broadcast image <url>';
-	else command_list = '>List: list team\'s score and rank.\n' +
-						'usage:!List';
+	if(hasPermission)command_list = {
+		"type": "flex",
+		"altText": "this is a flex message",
+		"contents": {
+			{
+  "type": "bubble",
+  "styles": {
+    "footer": {
+      "separator": true
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "Commands：",
+        "weight": "bold",
+        "color": "#06a862",
+        "size": "xl"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "xxl",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "List the status.",
+            "size": "lg",
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "usage : !list",
+            "size": "lg"
+          },
+          {
+            "type": "separator",
+            "margin": "xl"
+          },
+          
+          {
+            "type": "text",
+            "text": "Set the occupier of a region.",
+            "size": "lg",
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "usage : !set <rigion> <team>",
+            "size": "lg"
+          },
+          {
+            "type": "separator",
+            "margin": "xl"
+          },
+          
+          {
+            "type": "text",
+            "text": "Clear the status of a region.",
+            "size": "lg",
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "usage : !clear <rigion>",
+            "size": "lg"
+          },
+          {
+            "type": "separator",
+            "margin": "xl"
+          },
+          
+          {
+            "type": "text",
+            "text": "Reset the status of all rigions.",
+            "size": "lg",
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "usage : !reset",
+            "size": "lg"
+          },
+          {
+            "type": "separator",
+            "margin": "xl"
+          }
+        ]
+      }
+    ]
+  }
+}
+		}};
+	else command_list = "type": "flex",
+		"altText": "this is a flex message",
+		"contents": {
+			{
+  "type": "bubble",
+  "styles": {
+    "footer": {
+      "separator": true
+    }
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "指令：",
+        "weight": "bold",
+        "color": "#06a862",
+        "size": "xl"
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "margin": "xxl",
+        "spacing": "sm",
+        "contents": [
+          {
+            "type": "text",
+            "text": "列出所有區域的占領狀態",
+            "size": "lg",
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "用法 : !狀態",
+            "size": "lg"
+          },
+          {
+            "type": "separator",
+            "margin": "xl"
+          },
+          
+          {
+            "type": "text",
+            "text": "擲骰子",
+            "size": "lg",
+            "weight": "bold"
+          },
+          {
+            "type": "text",
+            "text": "用法 : !骰子",
+            "size": "lg"
+          },
+          {
+            "type": "separator",
+            "margin": "xl"
+          }
+        ]
+      }
+    ]
+  }
+}
+		}
 	event.reply(command_list);
 }
 
