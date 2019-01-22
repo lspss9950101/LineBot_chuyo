@@ -63,6 +63,7 @@ function get_rank(team){
 
 function generate_list(team){
 	var list = '一二三四五六七八';
+	var date = new Date();
 	return {
 		"type": "flex",
 		"altText": "this is a flex message",
@@ -221,7 +222,7 @@ function generate_list(team){
 				},
 				{
 					"type": "text",
-					"text": "2019/1/22 17:55",
+					"text": date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate() +  " " + date.getHours() + ":" + date.getMinutes + ":" + date.getSeconds,
 					"color": "#aaaaaa",
 					"size": "xs",
 					"align": "end"
