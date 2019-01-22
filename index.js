@@ -213,7 +213,7 @@ function generate_list_ops() {
 			}
 		}
 	};
-	/*for (var i = 0; i < 11; i++) {
+	for (var i = 0; i < 11; i++) {
 		var status;
 		var list = "0一二三四五六七八"
 		if (occupation[i] == 0) status = "目前尚未被佔領";
@@ -237,8 +237,8 @@ function generate_list_ops() {
 				"align": "end"
 			}]
 		}
-		msg.contents.body.contents = append + msg.contents.body.contents;
-	}*/
+		msg.contents.body.contents.concat(append);
+	}
 	return msg;
 }
 
