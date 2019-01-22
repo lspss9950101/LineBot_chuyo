@@ -68,20 +68,197 @@ function generate_list(team){
 		"type": "flex",
 		"altText": "this is a flex message",
 		"contents": {
-			"type": "bubble",
-			"header": {
-				"type": "box",
-				"layout": "horizontal",
-				"contents": [
-				{
-					"type": "text",
-					"text": "當前世界局勢分佈",
-					"weight": "bold",
-					"color": "#199e5e",
-					"size": "md"
-				}
-				]
-			}
+			{
+  "type": "bubble",
+  "header": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "text",
+        "text": "當前世界局勢分佈",
+        "weight": "bold",
+        "color": "#199e5e",
+        "size": "md"
+      }
+    ]
+  },
+  "hero": {
+    "type": "image",
+    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_4_news.png",
+    "size": "full",
+    "aspectRatio": "20:13",
+    "aspectMode": "cover"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "text",
+        "text": "第組",
+        "weight": "bold",
+        "size": "xxl",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "xs",
+        "contents": [
+          {
+            "type": "text",
+            "text": "佔領區域數量：",
+            "color": "#444444",
+            "size": "md",
+            "align": "start"
+          },
+          {
+            "type": "text",
+            "text": "3",
+            "color": "#444444",
+            "size": "md",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "text",
+        "text": "詳細世界局勢",
+        "weight": "bold",
+        "size": "xl",
+        "margin": "md"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "xs",
+        "contents": [
+          {
+            "type": "text",
+            "text": "A",
+            "color": "#444444",
+            "size": "md",
+            "align": "start"
+          },
+          {
+            "type": "text",
+            "text": "被第n組佔領",
+            "color": "#444444",
+            "size": "md",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "xs",
+        "contents": [
+          {
+            "type": "text",
+            "text": "B",
+            "color": "#444444",
+            "size": "md",
+            "align": "start"
+          },
+          {
+            "type": "text",
+            "text": "被第n組佔領",
+            "color": "#444444",
+            "size": "md",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "xs",
+        "contents": [
+          {
+            "type": "text",
+            "text": "C",
+            "color": "#444444",
+            "size": "md",
+            "align": "start"
+          },
+          {
+            "type": "text",
+            "text": "被第n組佔領",
+            "color": "#444444",
+            "size": "md",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "xs",
+        "contents": [
+          {
+            "type": "text",
+            "text": "D",
+            "color": "#444444",
+            "size": "md",
+            "align": "start"
+          },
+          {
+            "type": "text",
+            "text": "被第n組佔領",
+            "color": "#444444",
+            "size": "md",
+            "align": "end"
+          }
+        ]
+      },
+      {
+        "type": "separator",
+        "margin": "xxl"
+      },
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "margin": "md",
+        "contents": [
+          {
+            "type": "text",
+            "text": "更新時間：",
+            "color": "#aaaaaa",
+            "size": "xs",
+            "align": "start"
+          },
+          {
+            "type": "text",
+            "text": "2019/1/22 17:55",
+            "color": "#aaaaaa",
+            "size": "xs",
+            "align": "end"
+          }
+        ]
+      }
+    ]
+  },
+  "footer": {
+    "type": "box",
+    "layout": "horizontal",
+    "contents": [
+      {
+        "type": "button",
+        "action": {
+          "type": "message",
+          "label": "更新",
+          "text": "!list"
+        }
+      }
+    ]
+  }
+}
 		}
 	};
 }
