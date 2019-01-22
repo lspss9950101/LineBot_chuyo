@@ -129,94 +129,6 @@ function generate_list(team) {
 					"margin": "xxl"
 				},
 				{
-					"type": "text",
-					"text": "詳細世界局勢",
-					"color": "#0f4c32",
-					"weight": "bold",
-					"size": "xl",
-					"margin": "md"
-				},
-				{
-					"type": "box",
-					"layout": "horizontal",
-					"margin": "xs",
-					"contents": [{
-						"type": "text",
-						"text": "A",
-						"color": "#444444",
-						"size": "md",
-						"align": "start"
-					},
-					{
-						"type": "text",
-						"text": "被第n組佔領",
-						"color": "#444444",
-						"size": "md",
-						"align": "end"
-					}]
-				},
-				{
-					"type": "box",
-					"layout": "horizontal",
-					"margin": "xs",
-					"contents": [{
-						"type": "text",
-						"text": "B",
-						"color": "#444444",
-						"size": "md",
-						"align": "start"
-					},
-					{
-						"type": "text",
-						"text": "被第n組佔領",
-						"color": "#444444",
-						"size": "md",
-						"align": "end"
-					}]
-				},
-				{
-					"type": "box",
-					"layout": "horizontal",
-					"margin": "xs",
-					"contents": [{
-						"type": "text",
-						"text": "C",
-						"color": "#444444",
-						"size": "md",
-						"align": "start"
-					},
-					{
-						"type": "text",
-						"text": "被第n組佔領",
-						"color": "#444444",
-						"size": "md",
-						"align": "end"
-					}]
-				},
-				{
-					"type": "box",
-					"layout": "horizontal",
-					"margin": "xs",
-					"contents": [{
-						"type": "text",
-						"text": "D",
-						"color": "#444444",
-						"size": "md",
-						"align": "start"
-					},
-					{
-						"type": "text",
-						"text": "被第n組佔領",
-						"color": "#444444",
-						"size": "md",
-						"align": "end"
-					}]
-				},
-				{
-					"type": "separator",
-					"margin": "xxl"
-				},
-				{
 					"type": "box",
 					"layout": "horizontal",
 					"margin": "md",
@@ -243,8 +155,16 @@ function generate_list(team) {
 					"type": "button",
 					"action": {
 						"type": "message",
+						"label": "詳細世界局勢",
+						"text": "!詳情"
+					}
+				},
+				{
+					"type": "button",
+					"action": {
+						"type": "message",
 						"label": "更新",
-						"text": "!list"
+						"text": "!狀態"
 					}
 				}]
 			}
@@ -511,6 +431,10 @@ function list_command(event, hasPermission) {
 						"size": "xl"
 					},
 					{
+						"type": "separator",
+						"margin": "xl"
+					},
+					{
 						"type": "text",
 						"text": "列出所有區域的占領狀態",
 						"size": "lg",
@@ -606,7 +530,7 @@ bot.on('message', function (event) {
 				}
 			}
 			//User commands
-			if (cmd.toUpperCase() === ('!LIST')) {
+			if (cmd.toUpperCase() === ('!LIST') || cmd == '!狀態') {
 				var rp_msg;
 				if (ops.indexOf(sender) != -1 && group == undefined) rp_msg = generate_list_ops();
 				else if (group != undefined) {
@@ -615,6 +539,7 @@ bot.on('message', function (event) {
 				}
 				event.reply(rp_msg);
 			} else if (cmd.toUpperCase() === ('!HELP')) list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
+			if (cmd == '!詳情')event.reply(generate_list_ops);
 		}
 	}
 });
