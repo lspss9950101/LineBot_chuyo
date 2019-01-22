@@ -68,7 +68,6 @@ function generate_list(team){
 		"type": "flex",
 		"altText": "this is a flex message",
 		"contents": {
-			{
   "type": "bubble",
   "header": {
     "type": "box",
@@ -259,7 +258,6 @@ function generate_list(team){
     ]
   }
 }
-		}
 	};
 }
 
