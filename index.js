@@ -505,52 +505,32 @@ function list_command(event, hasPermission) {
 				"contents": [
 					{
 						"type": "text",
-						"text": "Commands：",
-						"weight": "bold",
-						"color": "#06a862",
-						"size": "xl"
+						"text": "列出所有區域的占領狀態",
+						"size": "lg",
+						"weight": "bold"
 					},
 					{
-						"type": "box",
-						"layout": "vertical",
-						"margin": "xxl",
-						"spacing": "sm",
-						"contents": [
-							{
-								"type": "text",
-								"text": "List the status.",
-								"size": "lg",
-								"weight": "bold"
-							},
-							{
-								"type": "text",
-								"text": "usage : !list",
-								"size": "lg"
-							},
-							{
-								"type": "separator",
-								"margin": "xl"
-							},
-
-							{
-								"type": "text",
-								"text": "Set the occupier of a region.",
-								"size": "lg",
-								"weight": "bold"
-							},
-							{
-								"type": "text",
-								"text": "usage : !set <region> <team>",
-								"size": "lg"
-							},
-							{
-								"type": "separator",
-								"margin": "xl"
-							},
-
-							
-						]
+						"type": "text",
+						"text": "用法 : !狀態",
+						"size": "lg"
+					},
+					{
+						"type": "separator",
+						"margin": "xl"
+					},
+					{
+						"type": "text",
+						"text": "擲骰子",
+						"size": "lg",
+						"weight": "bold"
+					},
+					{
+						"type": "text",
+						"text": "用法 : !骰子",
+						"size": "lg"
 					}
+
+
 				]
 			}
 		}
