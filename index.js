@@ -500,6 +500,7 @@ function list_command(event, hasPermission) {
 			}
 		}]
 	};
+	console.log('123');
 	event.reply(command_list);
 }
 
