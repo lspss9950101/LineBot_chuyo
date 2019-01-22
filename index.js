@@ -417,6 +417,10 @@ function generate_list_ops() {
 							"color": "#aaaaaa",
 							"size": "xs",
 							"align": "end"
+						},
+						{
+							"type": "separator",
+							"margin": "xl"
 						}]
 					}]
 			},
