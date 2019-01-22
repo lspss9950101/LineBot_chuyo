@@ -497,6 +497,19 @@ function list_command(event, hasPermission) {
 			"styles": {
 				"footer": {
 					"separator": true
+				},
+				"body": {
+					"type": "box",
+					"layout": "vertical",
+					"contents": [
+						{
+							"type": "text",
+							"text": "Commands：",
+							"weight": "bold",
+							"color": "#06a862",
+							"size": "xl"
+						}
+					]
 				}
 			}
 		}]
