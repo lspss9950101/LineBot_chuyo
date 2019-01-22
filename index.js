@@ -92,7 +92,7 @@ function generate_list(team){
 			"contents": [
 			{
 				"type": "text",
-				"text": team_name,
+				"text": "第一組",
 				"weight": "bold",
 				"size": "xxl",
 				"margin": "md"
