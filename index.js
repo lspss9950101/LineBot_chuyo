@@ -81,7 +81,7 @@ function generate_list(team){
 			},
 		"hero": {
 			"type": "image",
-			"url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_4_news.png",
+			"url": "https://02imgmini.eastday.com/mobile/20181004/20181004114807_fa262ff7ce086aedcaa804d5d76c1d83_1.jpeg",
 			"size": "full",
 			"aspectRatio": "20:13",
 			"aspectMode": "cover"
