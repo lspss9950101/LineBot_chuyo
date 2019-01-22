@@ -250,6 +250,149 @@ function generate_list(team){
 	};
 }
 
+function generate_list_ops(){
+	var date = new Date();
+	var time = date.getTime();
+	time += (8 * 60 * 60 * 1000);
+	var hour = Math.floor(time / 1000 / 60 / 60) % 24;
+	var minute = Math.floor(time / 1000 / 60) % 60;
+	var second = Math.floor(time / 1000) % 60;
+	return {
+		"type": "flex",
+		"altText": "this is a flex message",
+		"contents": {
+			"type": "bubble",
+			"header": {
+				"type": "box",
+				"layout": "horizontal",
+				"contents": [{
+					"type": "text",
+					"text": "當前世界局勢分佈",
+					"weight": "bold",
+					"color": "#06a862",
+					"size": "lg"
+				}]
+			},
+		"body": {
+			"type": "box",
+			"layout": "vertical",
+			"contents": [
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "xs",
+				"contents": [{
+					"type": "text",
+					"text": "A",
+					"color": "#444444",
+					"size": "md",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": "被第n組佔領",
+					"color": "#444444",
+					"size": "md",
+					"align": "end"
+				}]
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "xs",
+				"contents": [{
+					"type": "text",
+					"text": "B",
+					"color": "#444444",
+					"size": "md",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": "被第n組佔領",
+					"color": "#444444",
+					"size": "md",
+					"align": "end"
+				}]
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "xs",
+				"contents": [{
+					"type": "text",
+					"text": "C",
+					"color": "#444444",
+					"size": "md",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": "被第n組佔領",
+					"color": "#444444",
+					"size": "md",
+					"align": "end"
+				}]
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "xs",
+				"contents": [{
+					"type": "text",
+					"text": "D",
+					"color": "#444444",
+					"size": "md",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": "被第n組佔領",
+					"color": "#444444",
+					"size": "md",
+					"align": "end"
+				}]
+			},
+			{
+				"type": "separator",
+				"margin": "xxl"
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "md",
+				"contents": [{
+					"type": "text",
+					"text": "更新時間：",
+					"color": "#aaaaaa",
+					"size": "xs",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": date.getFullYear() + "/" + (1 + date.getMonth()) + "/" + date.getDate() +  " " + hour + ":" + minute + ":" + second,
+					"color": "#aaaaaa",
+					"size": "xs",
+					"align": "end"
+				}]
+			}]
+		},
+			"footer": {
+				"type": "box",
+				"layout": "horizontal",
+				"contents": [{
+					"type": "button",
+					"action": {
+						"type": "message",
+						"label": "更新",
+						"text": "!list"
+					}
+				}]
+			}
+		}
+	};
+}
+
 function list_command(event, hasPermission){
 	if(hasPermission)command_list = '>List: list all teams\' scores.\n' +
 									'usage:!List\n' + '\n' +
@@ -330,8 +473,7 @@ bot.on('message', function(event) {
 			//User commands
 			if(cmd.toUpperCase() === ('!LIST')){
 				var rp_msg;
-				if(ops.indexOf(sender) != -1 && group == undefined)rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
-																		  "\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
+				if(ops.indexOf(sender) != -1 && group == undefined)rp_msg = generate_list_ops();
 				else if(group != undefined){
 					var index = groups.indexOf(group);	
 					rp_msg = generate_list(index);
