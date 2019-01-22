@@ -64,6 +64,11 @@ function get_rank(team){
 function generate_list(team){
 	var list = '一二三四五六七八';
 	var date = new Date();
+	var time = date.getTime();
+	time += (8 * 60 * 60 * 1000);
+	var hour = (time / 1000 / 60 / 60) % 24;
+	var minute = (time / 1000 / 60) % 60;
+	var second = (time / 1000) % 60;
 	return {
 		"type": "flex",
 		"altText": "this is a flex message",
@@ -222,7 +227,7 @@ function generate_list(team){
 				},
 				{
 					"type": "text",
-					"text": date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate() +  " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds(),
+					"text": date.getFullYear() + "/" + (1 + date.getMonth()) + "/" + date.getDate() +  " " + hour + ":" + minute + ":" + second,
 					"color": "#aaaaaa",
 					"size": "xs",
 					"align": "end"
