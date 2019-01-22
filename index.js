@@ -457,6 +457,7 @@ bot.on('message', function (event) {
 			if (cmd == '!詳情') event.reply(generate_list_ops());
 		}
 	}
+}
 );
 
 const app = express();
