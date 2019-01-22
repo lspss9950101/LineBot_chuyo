@@ -497,58 +497,6 @@ function list_command(event, hasPermission) {
 				"footer": {
 					"separator": true
 				}
-			},
-			"body": {
-				"type": "box",
-				"layout": "vertical",
-				"contents": [
-					{
-						"type": "text",
-						"text": "指令：",
-						"weight": "bold",
-						"color": "#06a862",
-						"size": "xl"
-					},
-					{
-						"type": "box",
-						"layout": "vertical",
-						"margin": "xxl",
-						"spacing": "sm",
-						"contents": [
-							{
-								"type": "text",
-								"text": "列出所有區域的占領狀態",
-								"size": "lg",
-								"weight": "bold"
-							},
-							{
-								"type": "text",
-								"text": "用法 : !狀態",
-								"size": "lg"
-							},
-							{
-								"type": "separator",
-								"margin": "xl"
-							},
-
-							{
-								"type": "text",
-								"text": "擲骰子",
-								"size": "lg",
-								"weight": "bold"
-							},
-							{
-								"type": "text",
-								"text": "用法 : !骰子",
-								"size": "lg"
-							},
-							{
-								"type": "separator",
-								"margin": "xl"
-							}
-						]
-					}
-				]
 			}
 		}]
 	};
