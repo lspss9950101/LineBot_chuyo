@@ -509,45 +509,6 @@ function list_command(event, hasPermission) {
 						"weight": "bold",
 						"color": "#1DB446",
 						"size": "xl"
-					},
-					{
-						"type": "box",
-						"layout": "vertical",
-						"margin": "xxl",
-						"spacing": "sm",
-						"contents": [
-							{
-								"type": "text",
-								"text": "列出所有區域的占領狀態",
-								"size": "lg",
-								"weight": "bold"
-							},
-							{
-								"type": "text",
-								"text": "用法 : !狀態",
-								"size": "lg"
-							},
-							{
-								"type": "separator",
-								"margin": "xl"
-							},
-							
-							{
-								"type": "text",
-								"text": "擲骰子",
-								"size": "lg",
-								"weight": "bold"
-							},
-							{
-								"type": "text",
-								"text": "用法 : !骰子",
-								"size": "lg"
-							},
-							{
-								"type": "separator",
-								"margin": "xl"
-							}
-						]
 					}
 				]
 			}
