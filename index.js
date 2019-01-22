@@ -492,7 +492,7 @@ function list_command(event, hasPermission) {
 	else command_list = {
 		"type": "flex",
 		"altText": "this is a flex message",
-		"contents": [{
+		"contents": {
 			"type": "bubble",
 			"styles": {
 				"footer": {
@@ -509,10 +509,51 @@ function list_command(event, hasPermission) {
 						"weight": "bold",
 						"color": "#06a862",
 						"size": "xl"
+					},
+					{
+						"type": "box",
+						"layout": "vertical",
+						"margin": "xxl",
+						"spacing": "sm",
+						"contents": [
+							{
+								"type": "text",
+								"text": "List the status.",
+								"size": "lg",
+								"weight": "bold"
+							},
+							{
+								"type": "text",
+								"text": "usage : !list",
+								"size": "lg"
+							},
+							{
+								"type": "separator",
+								"margin": "xl"
+							},
+
+							{
+								"type": "text",
+								"text": "Set the occupier of a region.",
+								"size": "lg",
+								"weight": "bold"
+							},
+							{
+								"type": "text",
+								"text": "usage : !set <region> <team>",
+								"size": "lg"
+							},
+							{
+								"type": "separator",
+								"margin": "xl"
+							},
+
+							
+						]
 					}
 				]
 			}
-		}]
+		}
 	};
 	event.reply(command_list);
 }
