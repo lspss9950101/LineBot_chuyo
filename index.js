@@ -94,7 +94,7 @@ function generate_list(team) {
 					},
 					{
 						"type": "text",
-						"text": occupied.toString(),
+						"text": occupied,
 						"color": "#444444",
 						"size": "md",
 						"align": "end"
@@ -149,13 +149,14 @@ function generate_list(team) {
 }
 
 function generate_list_ops() {
+	var list = "一二三四五六七八";
 	var date = new Date();
 	var time = date.getTime();
 	time += (8 * 60 * 60 * 1000);
 	var hour = Math.floor(time / 1000 / 60 / 60) % 24;
 	var minute = Math.floor(time / 1000 / 60) % 60;
 	var second = Math.floor(time / 1000) % 60;
-	var msg = {
+	return {
 		"type": "flex",
 		"altText": "[狀態]",
 		"contents": {
@@ -175,6 +176,226 @@ function generate_list_ops() {
 				"type": "box",
 				"layout": "vertical",
 				"contents": [
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[0],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[0] == 0 ? "尚未被占領" : "被第" + list[occupation[0]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[1],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[1] == 0 ? "尚未被占領" : "被第" + list[occupation[1]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[2],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[2] == 0 ? "尚未被占領" : "被第" + list[occupation[2]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[3],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[3] == 0 ? "尚未被占領" : "被第" + list[occupation[3]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[4],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[4] == 0 ? "尚未被占領" : "被第" + list[occupation[4]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[5],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[5] == 0 ? "尚未被占領" : "被第" + list[occupation[5]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[6],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[6] == 0 ? "尚未被占領" : "被第" + list[occupation[6]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[7],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[7] == 0 ? "尚未被占領" : "被第" + list[occupation[7]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[8],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[8] == 0 ? "尚未被占領" : "被第" + list[occupation[8]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[9],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[9] == 0 ? "尚未被占領" : "被第" + list[occupation[9]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[10],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[10] == 0 ? "尚未被占領" : "被第" + list[occupation[10]+1] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
 					{
 						"type": "separator",
 						"margin": "xxl"
@@ -213,35 +434,6 @@ function generate_list_ops() {
 			}
 		}
 	};
-	var append = [];
-	for (var i = 0; i < 11; i++) {
-		var status;
-		var list = "0一二三四五六七八"
-		if (occupation[i] == 0) status = "目前尚未被佔領";
-		else status = "被第" + list[occupation[i]] + "組佔領";
-		append.push([{
-			"type": "box",
-			"layout": "horizontal",
-			"margin": "xs",
-			"contents": [{
-				"type": "text",
-				"text": country_name[i],
-				"color": "#444444",
-				"size": "md",
-				"align": "start"
-			},
-			{
-				"type": "text",
-				"text": status,
-				"color": "#444444",
-				"size": "md",
-				"align": "end"
-			}]
-		}]);
-	}
-	console.log(append);
-	msg.contents.body.contents.push(append);
-	return msg;
 }
 
 function list_command(event, hasPermission) {
@@ -459,7 +651,6 @@ bot.on('message', function (event) {
 			if (cmd == '!詳情') event.reply(generate_list_ops());
 		}
 	}
-}
 );
 
 const app = express();
