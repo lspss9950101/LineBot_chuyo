@@ -556,6 +556,7 @@ function list_command(event, hasPermission) {
 			}
 		}]
 	};
+	event.reply(command_list);
 }
 
 load_config();
