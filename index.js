@@ -481,10 +481,6 @@ function list_command(event, hasPermission) {
 								"type": "text",
 								"text": "usage : !reset",
 								"size": "lg"
-							},
-							{
-								"type": "separator",
-								"margin": "xl"
 							}
 						]
 					}
