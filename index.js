@@ -213,12 +213,13 @@ function generate_list_ops() {
 			}
 		}
 	};
+	var append;
 	for (var i = 0; i < 11; i++) {
 		var status;
 		var list = "0一二三四五六七八"
 		if (occupation[i] == 0) status = "目前尚未被佔領";
 		else status = "被第" + list[occupation[i]] + "組佔領";
-		var append = {
+		append.concat([{
 			"type": "box",
 			"layout": "horizontal",
 			"margin": "xs",
@@ -236,9 +237,9 @@ function generate_list_ops() {
 				"size": "md",
 				"align": "end"
 			}]
-		}
-		msg.contents.body.contents.concat(append);
+		}]);
 	}
+	msg.contents.body.contents.push(append);
 	return msg;
 }
 
