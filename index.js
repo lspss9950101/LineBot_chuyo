@@ -489,7 +489,7 @@ function list_command(event, hasPermission) {
 			}
 		}
 	};
-	else {command_list = {
+	else command_list = {
 		"type": "flex",
 		"altText": "this is a flex message",
 		"contents": [{
@@ -505,17 +505,15 @@ function list_command(event, hasPermission) {
 				"contents": [
 					{
 						"type": "text",
-						"text": "指令：",
+						"text": "Commands：",
 						"weight": "bold",
-						"color": "#1DB446",
+						"color": "#06a862",
 						"size": "xl"
 					}
 				]
 			}
 		}]
 	};
-console.log('213');
-}
 	event.reply(command_list);
 }
 
