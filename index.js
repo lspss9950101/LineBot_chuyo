@@ -505,6 +505,13 @@ function list_command(event, hasPermission) {
 				"contents": [
 					{
 						"type": "text",
+						"text": "指令：",
+						"weight": "bold",
+						"color": "#06a862",
+						"size": "xl"
+					},
+					{
+						"type": "text",
 						"text": "列出所有區域的占領狀態",
 						"size": "lg",
 						"weight": "bold"
