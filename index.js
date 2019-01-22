@@ -66,9 +66,9 @@ function generate_list(team){
 	var date = new Date();
 	var time = date.getTime();
 	time += (8 * 60 * 60 * 1000);
-	var hour = (time / 1000 / 60 / 60) % 24;
-	var minute = (time / 1000 / 60) % 60;
-	var second = (time / 1000) % 60;
+	var hour = Math.floor(time / 1000 / 60 / 60) % 24;
+	var minute = Math.floor(time / 1000 / 60) % 60;
+	var second = Math.floor(time / 1000) % 60;
 	return {
 		"type": "flex",
 		"altText": "this is a flex message",
