@@ -396,6 +396,7 @@ function generate_list_ops() {
 }
 
 function list_command(event, hasPermission) {
+	var command_list;
 	if (hasPermission) command_list = {
 		"type": "flex",
 		"altText": "this is a flex message",
