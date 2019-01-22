@@ -61,6 +61,201 @@ function get_rank(team){
 	return rank;
 }
 
+function generate_list(team){
+	var list = '一二三四五六七八';
+	return{
+		"type": "bubble",
+		"header": {
+			"type": "box",
+			"layout": "horizontal",
+			"contents": [
+			{
+				"type": "text",
+				"text": "當前世界局勢分佈",
+				"weight": "bold",
+				"color": "#199e5e",
+				"size": "md"
+			}
+			]
+		},
+		"hero": {
+			"type": "image",
+			"url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_4_news.png",
+			"size": "full",
+			"aspectRatio": "20:13",
+			"aspectMode": "cover"
+		},
+		"body": {
+			"type": "box",
+			"layout": "vertical",
+			"contents": [
+			{
+				"type": "text",
+				"text": "第" + list[team] + "組",
+				"weight": "bold",
+				"size": "xxl",
+				"margin": "md"
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "xs",
+				"contents": [
+				{
+					"type": "text",
+					"text": "佔領區域數量：",
+					"color": "#444444",
+					"size": "md",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": "3",
+					"color": "#444444",
+					"size": "md",
+					"align": "end"
+				}
+				]
+			},
+			{
+				"type": "separator",
+				"margin": "xxl"
+			},
+			{
+				"type": "text",
+				"text": "詳細世界局勢",
+				"weight": "bold",
+				"size": "xl",
+				"margin": "md"
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "xs",
+				"contents": [
+				{
+					"type": "text",
+					"text": "A",
+					"color": "#444444",
+					"size": "md",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": "被第n組佔領",
+					"color": "#444444",
+					"size": "md",
+					"align": "end"
+				}
+				]
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "xs",
+				"contents": [
+				{
+					"type": "text",
+					"text": "B",
+					"color": "#444444",
+					"size": "md",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": "被第n組佔領",
+					"color": "#444444",
+					"size": "md",
+					"align": "end"
+				}
+			]
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "xs",
+				"contents": [
+			{
+					"type": "text",
+					"text": "C",
+					"color": "#444444",
+					"size": "md",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": "被第n組佔領",
+					"color": "#444444",
+					"size": "md",
+					"align": "end"
+				}
+				]
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "xs",
+				"contents": [
+				{
+					"type": "text",
+					"text": "D",
+					"color": "#444444",
+					"size": "md",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": "被第n組佔領",
+					"color": "#444444",
+					"size": "md",
+					"align": "end"
+				}
+				]
+			},
+			{
+				"type": "separator",
+				"margin": "xxl"
+			},
+			{
+				"type": "box",
+				"layout": "horizontal",
+				"margin": "md",
+				"contents": [
+				{
+					"type": "text",
+					"text": "更新時間：",
+					"color": "#aaaaaa",
+					"size": "xs",
+					"align": "start"
+				},
+				{
+					"type": "text",
+					"text": "2019/1/22 17:55",
+					"color": "#aaaaaa",
+					"size": "xs",
+					"align": "end"
+				}
+				]
+			}
+			]
+		},
+		"footer": {
+			"type": "box",
+			"layout": "horizontal",
+			"contents": [
+			{
+				"type": "button",
+				"action": {
+				"type": "message",
+				"label": "更新",
+				"text": "!list"
+				}
+			}
+			]
+		}
+	}
+}
+
 function list_command(event, hasPermission){
 	if(hasPermission)command_list = '>List: list all teams\' scores.\n' +
 									'usage:!List\n' + '\n' +
@@ -142,11 +337,10 @@ bot.on('message', function(event) {
 			if(cmd.toUpperCase() === ('!LIST')){
 				var rp_msg;
 				if(ops.indexOf(sender) != -1 && group == undefined)rp_msg = "第一組:" + score[0] + "\n第二組:" + score[1] + "\n第三組:" + score[2] + "\n第四組:" + score[3] + 
-													"\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
+																		  "\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
 				else if(group != undefined){
 					var index = groups.indexOf(group);	
-					var list = '一二三四五六七八';
-					rp_msg = '第' + list[index] + '組:' + score[index] + '分\n目前位居第' + list[get_rank(index)] + '名';
+					rp_msg = generate_list(index);
 				}
 				event.reply(rp_msg);
 			}else if(cmd.toUpperCase() === ('!HELP'))list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
