@@ -94,7 +94,7 @@ function generate_list(team) {
 					},
 					{
 						"type": "text",
-						"text": occupied.toString,
+						"text": "occupied.toString",
 						"color": "#444444",
 						"size": "md",
 						"align": "end"
