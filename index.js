@@ -222,7 +222,7 @@ function generate_list(team){
 				},
 				{
 					"type": "text",
-					"text": date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate() +  " " + date.getHours() + ":" + date.getMinutes + ":" + date.getSeconds,
+					"text": date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate() +  " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds(),
 					"color": "#aaaaaa",
 					"size": "xs",
 					"align": "end"
