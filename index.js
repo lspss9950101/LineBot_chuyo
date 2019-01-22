@@ -75,7 +75,7 @@ function generate_list(team){
 					"type": "text",
 					"text": "當前世界局勢分佈",
 					"weight": "bold",
-					"color": "#199e5e",
+					"color": "#06a862",
 					"size": "lg"
 				}]
 			},
@@ -92,6 +92,7 @@ function generate_list(team){
 			"contents": [{
 				"type": "text",
 				"text": "第" + list[team] + "組",
+				"color": "#0f4c32",
 				"weight": "bold",
 				"size": "xxl",
 				"margin": "md"
@@ -122,6 +123,7 @@ function generate_list(team){
 			{
 				"type": "text",
 				"text": "詳細世界局勢",
+				"color": "#0f4c32",
 				"weight": "bold",
 				"size": "xl",
 				"margin": "md"
