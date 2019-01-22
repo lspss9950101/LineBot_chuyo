@@ -219,7 +219,7 @@ function generate_list_ops() {
 		var list = "0一二三四五六七八"
 		if (occupation[i] == 0) status = "目前尚未被佔領";
 		else status = "被第" + list[occupation[i]] + "組佔領";
-		append.concat([{
+		append.push([{
 			"type": "box",
 			"layout": "horizontal",
 			"margin": "xs",
