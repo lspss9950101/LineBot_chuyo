@@ -63,7 +63,6 @@ function get_rank(team){
 
 function generate_list(team){
 	var list = '一二三四五六七八';
-	var team_name = "第" + list[team] + "組";
 	return {
 		"type": "flex",
 		"altText": "this is a flex message",
@@ -77,7 +76,7 @@ function generate_list(team){
 					"text": "當前世界局勢分佈",
 					"weight": "bold",
 					"color": "#199e5e",
-					"size": "md"
+					"size": "lg"
 				}]
 			},
 		"hero": {
@@ -92,7 +91,7 @@ function generate_list(team){
 			"layout": "vertical",
 			"contents": [{
 				"type": "text",
-				"text": "第組",
+				"text": "第" + list[team] + "組",
 				"weight": "bold",
 				"size": "xxl",
 				"margin": "md"
