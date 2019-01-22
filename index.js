@@ -166,7 +166,7 @@ bot.on('message', function(event) {
 			}
 			]
 		}
-	}
+	};
 				}
 				event.reply(rp_msg);
 			}else if(cmd.toUpperCase() === ('!HELP'))list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
