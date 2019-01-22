@@ -63,6 +63,7 @@ function get_rank(team){
 
 function generate_list(team){
 	var list = '一二三四五六七八';
+	var team_name = "第" + list[team] + "組";
 	return{
 		"type": "bubble",
 		"header": {
@@ -91,7 +92,7 @@ function generate_list(team){
 			"contents": [
 			{
 				"type": "text",
-				"text": "第" + list[team] + "組",
+				"text": team_name,
 				"weight": "bold",
 				"size": "xxl",
 				"margin": "md"
