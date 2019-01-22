@@ -64,22 +64,7 @@ function get_rank(team){
 function generate_list(team){
 	var list = '一二三四五六七八';
 	var team_name = "第" + list[team] + "組";
-	return{
-		"type": "bubble",
-		"header": {
-			"type": "box",
-			"layout": "horizontal",
-			"contents": [
-			{
-				"type": "text",
-				"text": "當前世界局勢分佈",
-				"weight": "bold",
-				"color": "#199e5e",
-				"size": "md"
-			}
-			]
-		}
-	}
+	//return
 }
 
 function list_command(event, hasPermission){
@@ -166,7 +151,22 @@ bot.on('message', function(event) {
 																		  "\n第五組:" + score[4] + "\n第六組:" + score[5] + "\n第七組:" + score[6] + "\n第八組:" + score[7];
 				else if(group != undefined){
 					var index = groups.indexOf(group);	
-					rp_msg = generate_list(index);
+					rp_msg = {
+		"type": "bubble",
+		"header": {
+			"type": "box",
+			"layout": "horizontal",
+			"contents": [
+			{
+				"type": "text",
+				"text": "當前世界局勢分佈",
+				"weight": "bold",
+				"color": "#199e5e",
+				"size": "md"
+			}
+			]
+		}
+	}
 				}
 				event.reply(rp_msg);
 			}else if(cmd.toUpperCase() === ('!HELP'))list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
