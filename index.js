@@ -448,7 +448,7 @@ function list_command(event, hasPermission) {
 							},
 							{
 								"type": "text",
-								"text": "usage : !set <rigion> <team>",
+								"text": "usage : !set <region> <team>",
 								"size": "lg"
 							},
 							{
@@ -464,7 +464,7 @@ function list_command(event, hasPermission) {
 							},
 							{
 								"type": "text",
-								"text": "usage : !clear <rigion>",
+								"text": "usage : !clear <region>",
 								"size": "lg"
 							},
 							{
@@ -474,7 +474,7 @@ function list_command(event, hasPermission) {
 
 							{
 								"type": "text",
-								"text": "Reset the status of all rigions.",
+								"text": "Reset the status of all regions.",
 								"size": "lg",
 								"weight": "bold"
 							},
@@ -489,7 +489,7 @@ function list_command(event, hasPermission) {
 			}
 		}
 	};
-	else command_list = {
+	else {command_list = {
 		"type": "flex",
 		"altText": "this is a flex message",
 		"contents": [{
@@ -513,12 +513,9 @@ function list_command(event, hasPermission) {
 				]
 			}
 		}]
-
-
-
-
-
 	};
+console.log('213');
+}
 	event.reply(command_list);
 }
 
