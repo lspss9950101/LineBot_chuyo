@@ -10,26 +10,12 @@ var bot = linebot({
 
 var ops = [];
 var groups = [];
-var score = [0, 0, 0, 0, 0, 0, 0, 0];
+var occupation = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var awake_time = 0;
+var country_name = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
 
 function load_config() {
 	console.log('acquiring data');
-	fs.readFile("config.txt", function (err, data) {
-		if (err) throw err;
-		if (data) {
-			console.log('get data');
-			var jsonobj = JSON.parse(data);
-			score[0] = jsonobj.one;
-			score[1] = jsonobj.two;
-			score[2] = jsonobj.three;
-			score[3] = jsonobj.four;
-			score[4] = jsonobj.five;
-			score[5] = jsonobj.six;
-			score[6] = jsonobj.seven;
-			score[7] = jsonobj.eight;
-		}
-	});
 	fs.readFile("ops.txt", "utf8", function (err, data) {
 		if (err) throw err;
 		if (data) ops = data.split(",");
@@ -40,26 +26,14 @@ function load_config() {
 	});
 }
 
-
-function save_score() {
-	var str = JSON.stringify({
-		one: score[0], two: score[1], three: score[2], four: score[3],
-		five: score[4], six: score[5], seven: score[6], eight: score[7]
-	});
-	fs.writeFile('config.txt', str, function (err) {
-		if (err) throw err;
-	});
-}
-
 function reset() {
 	var i;
-	for (i = 0; i < 7; i++)score[i] = 0;
-	save_score();
+	for (i = 0; i < 7; i++)occupation[i] = 0;
 }
 
 function get_rank(team) {
 	var i, rank = 0;
-	for (i = 0; i < 8; i++)if (score[i] > score[team]) rank++;
+	for (i = 0; i < 8; i++)if (occupation[i] > occupation[team]) rank++;
 	return rank;
 }
 
@@ -71,9 +45,11 @@ function generate_list(team) {
 	var hour = Math.floor(time / 1000 / 60 / 60) % 24;
 	var minute = Math.floor(time / 1000 / 60) % 60;
 	var second = Math.floor(time / 1000) % 60;
+	var occupied = 0;
+	for (var i = 0; i < 11; i++)if (occupation[i] == team) occupied++;
 	return {
 		"type": "flex",
-		"altText": "this is a flex message",
+		"altText": "[狀態]",
 		"contents": {
 			"type": "bubble",
 			"header": {
@@ -118,7 +94,7 @@ function generate_list(team) {
 					},
 					{
 						"type": "text",
-						"text": "3",
+						"text": occupied,
 						"color": "#444444",
 						"size": "md",
 						"align": "end"
@@ -179,9 +155,9 @@ function generate_list_ops() {
 	var hour = Math.floor(time / 1000 / 60 / 60) % 24;
 	var minute = Math.floor(time / 1000 / 60) % 60;
 	var second = Math.floor(time / 1000) % 60;
-	return {
+	var msg = {
 		"type": "flex",
-		"altText": "this is a flex message",
+		"altText": "[狀態]",
 		"contents": {
 			"type": "bubble",
 			"header": {
@@ -199,82 +175,6 @@ function generate_list_ops() {
 				"type": "box",
 				"layout": "vertical",
 				"contents": [
-					{
-						"type": "box",
-						"layout": "horizontal",
-						"margin": "xs",
-						"contents": [{
-							"type": "text",
-							"text": "A",
-							"color": "#444444",
-							"size": "md",
-							"align": "start"
-						},
-						{
-							"type": "text",
-							"text": "被第n組佔領",
-							"color": "#444444",
-							"size": "md",
-							"align": "end"
-						}]
-					},
-					{
-						"type": "box",
-						"layout": "horizontal",
-						"margin": "xs",
-						"contents": [{
-							"type": "text",
-							"text": "B",
-							"color": "#444444",
-							"size": "md",
-							"align": "start"
-						},
-						{
-							"type": "text",
-							"text": "被第n組佔領",
-							"color": "#444444",
-							"size": "md",
-							"align": "end"
-						}]
-					},
-					{
-						"type": "box",
-						"layout": "horizontal",
-						"margin": "xs",
-						"contents": [{
-							"type": "text",
-							"text": "C",
-							"color": "#444444",
-							"size": "md",
-							"align": "start"
-						},
-						{
-							"type": "text",
-							"text": "被第n組佔領",
-							"color": "#444444",
-							"size": "md",
-							"align": "end"
-						}]
-					},
-					{
-						"type": "box",
-						"layout": "horizontal",
-						"margin": "xs",
-						"contents": [{
-							"type": "text",
-							"text": "D",
-							"color": "#444444",
-							"size": "md",
-							"align": "start"
-						},
-						{
-							"type": "text",
-							"text": "被第n組佔領",
-							"color": "#444444",
-							"size": "md",
-							"align": "end"
-						}]
-					},
 					{
 						"type": "separator",
 						"margin": "xxl"
@@ -313,13 +213,40 @@ function generate_list_ops() {
 			}
 		}
 	};
+	for (var i = 0; i < 11; i++) {
+		var status;
+		var list = "0一二三四五六七八"
+		if (occupation[i] == 0) status = "目前尚未被佔領";
+		else status = "被第" + list[occupation[i]] + "組佔領";
+		var append = {
+			"type": "box",
+			"layout": "horizontal",
+			"margin": "xs",
+			"contents": [{
+				"type": "text",
+				"text": country_name[i],
+				"color": "#444444",
+				"size": "md",
+				"align": "start"
+			},
+			{
+				"type": "text",
+				"text": status,
+				"color": "#444444",
+				"size": "md",
+				"align": "end"
+			}]
+		}
+		msg.contents.body.contents = append + msg.contents.body.contents;
+	}
+	return msg;
 }
 
 function list_command(event, hasPermission) {
 	var command_list;
 	if (hasPermission) command_list = {
 		"type": "flex",
-		"altText": "this is a flex message",
+		"altText": "幫助",
 		"contents": {
 			"type": "bubble",
 			"styles": {
@@ -411,7 +338,7 @@ function list_command(event, hasPermission) {
 	};
 	else command_list = {
 		"type": "flex",
-		"altText": "this is a flex message",
+		"altText": "[幫助]",
 		"contents": {
 			"type": "bubble",
 			"styles": {
@@ -483,26 +410,14 @@ bot.on('message', function (event) {
 			var cmd = tokens[0];
 			//Op commands
 			if (ops.indexOf(sender) != -1) {
-				if (cmd.toUpperCase() === ('!ADD')) {
-					if (tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8) {
-						score[tokens[1] - 1] += parseInt(tokens[2]);
-						save_score();
-						event.reply('Added ' + tokens[2] + ' points to ' + tokens[1] + '.');
-					} else event.reply('Invalid Command.\nadd team_number score').then(function (data) {
-						console.log(sender + ' added ' + tokens[2] + ' points to team ' + tokens[1] + '.');
-					}).catch(function (error) {
-						console.log('error');
-					});
-				} else if (cmd.toUpperCase() === ('!SET')) {
-					if (tokens.length == 3 && tokens[1] > 0 && tokens[1] <= 8) {
-						score[tokens[1] - 1] = parseInt(tokens[2]);
-						save_score();
-						event.reply('Set ' + tokens[2] + ' points to team ' + tokens[1]);
-					} else event.reply('Invalid Command.\nset team_number score').then(function (data) {
-						console.log(sender + ' set team ' + tokens[1] + ' ' + tokens[2] + ' points.');
-					}).catch(function (error) {
-						console.log('error');
-					});
+				if (cmd.toUpperCase() === ('!SET')) {
+					if (tokens.length > 2) {
+						occupation[tokens[1]] = tokens[2];
+					}
+				} else if (cmd.toUpperCase() === ('!CLEAR')) {
+					if (tokens.length > 1) {
+						occupation[tokens[1]] = 0;
+					}
 				} else if (cmd.toUpperCase() === ('!RESET')) {
 					reset();
 				} else if (cmd.toUpperCase() === ('!BROADCAST')) {
@@ -539,10 +454,10 @@ bot.on('message', function (event) {
 				}
 				event.reply(rp_msg);
 			} else if (cmd.toUpperCase() === ('!HELP')) list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
-			if (cmd == '!詳情')event.reply(generate_list_ops());
+			if (cmd == '!詳情') event.reply(generate_list_ops());
 		}
 	}
-});
+);
 
 const app = express();
 const linebotParser = bot.parser();
