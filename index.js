@@ -434,7 +434,7 @@ function generate_list_all() {
 	//else str_hour = hour.toString();
 	if (minute < 10) str_minute = "0" + minute.toString();
 	//else str_minute = minute.toString();
-	if (second < 10) str_second = "0" + second.toString();
+	//if (second < 10) str_second = "0" + second.toString();
 	//else str_second = second.toString();
 	return {
 		"type": "flex",
