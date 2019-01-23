@@ -47,7 +47,13 @@ function generate_list(team) {
 	var minute = Math.floor(time / 1000 / 60) % 60;
 	var second = Math.floor(time / 1000) % 60;
 	var occupied = 0;
-	console.log(score);
+	var str_hour, str_minute, str_second;
+	if (hour < 10) str_hour = "0" + hour.toString();
+	else str_hour = hour.toString();
+	if (minute < 10) str_minute = "0" + minute.toString();
+	else str_minute = minute.toString();
+	if (second < 10) str_second = "0" + second.toString();
+	else str_second = second.toString();
 	for (var i = 0; i < 11; i++)if (occupation[i] == team + 1) occupied++;
 	return {
 		"type": "flex",
@@ -138,7 +144,7 @@ function generate_list(team) {
 					},
 					{
 						"type": "text",
-						"text": date.getFullYear() + "/" + (1 + date.getMonth()) + "/" + date.getDate() + " " + hour + ":" + minute + ":" + second,
+						"text": date.getFullYear() + "/" + (1 + date.getMonth()) + "/" + date.getDate() + " " + str_hour + ":" + str_minute + ":" + str_second,
 						"color": "#aaaaaa",
 						"size": "xs",
 						"align": "end"
