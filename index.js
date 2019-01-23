@@ -172,7 +172,7 @@ function generate_list(team) {
 					"action": {
 						"type": "message",
 						"label": "更新",
-						"text": "!狀態"
+						"text": "!我愛種子營"
 					}
 				}]
 			}
@@ -431,7 +431,7 @@ function generate_list_ops() {
 					"action": {
 						"type": "message",
 						"label": "更新",
-						"text": "!list"
+						"text": "!詳情"
 					}
 				}]
 			}
@@ -1170,8 +1170,8 @@ bot.on('message', function (event) {
 							}
 						}
 					};
-					for(var i = 0; i < groups.length; i++)bot.push(groups[i], msg);
-				} else if (cmd.toUpperCase() === ('!RULE')){
+					for (var i = 0; i < groups.length; i++)bot.push(groups[i], msg);
+				} else if (cmd.toUpperCase() === ('!RULE')) {
 					var msg = {
 						"type": "flex",
 						"altText": "[故事]",
@@ -1223,7 +1223,7 @@ bot.on('message', function (event) {
 							}
 						}
 					};
-					for(var i = 0; i < groups.length; i++)bot.push(groups[i], msg);
+					for (var i = 0; i < groups.length; i++)bot.push(groups[i], msg);
 				}
 			}
 			//User commands
