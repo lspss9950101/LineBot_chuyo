@@ -25,9 +25,9 @@ function load_config() {
 		if (err) throw err;
 		if (data) groups = data.split(",");
 	});
-	fs.readFile("country.txt", "utf8", function(err, data){
-		if(err) throw err;
-		if(data)country_name = data.split(",");
+	fs.readFile("country.txt", "utf8", function (err, data) {
+		if (err) throw err;
+		if (data) country_name = data.split(",");
 	});
 }
 
@@ -46,7 +46,7 @@ function generate_list(team) {
 	var minute = Math.floor(time / 1000 / 60) % 60;
 	var second = Math.floor(time / 1000) % 60;
 	var occupied = 0;
-	var sum = score.sum();
+	var percent = floor(score[team] / score.sum());
 	for (var i = 0; i < 11; i++)if (occupation[i] == team + 1) occupied++;
 	return {
 		"type": "flex",
@@ -114,7 +114,7 @@ function generate_list(team) {
 					},
 					{
 						"type": "text",
-						"text": round(score[team]/sum).toString(),
+						"text": percent.toString() + '%',
 						"color": "#444444",
 						"size": "md",
 						"align": "end"
@@ -629,8 +629,8 @@ bot.on('message', function (event) {
 			//Op commands
 			if (ops.indexOf(sender) != -1) {
 				if (cmd.toUpperCase() === ('!ADD')) {
-					if(tokens.length > 2){
-						if(parseInt(tokens[1]) > 0 && parseInt(tokens[1]) <= 8){
+					if (tokens.length > 2) {
+						if (parseInt(tokens[1]) > 0 && parseInt(tokens[1]) <= 8) {
 							score[parseInt(tokens[1])] += parseInt(tokens[2]);
 						}
 					}
