@@ -47,6 +47,7 @@ function generate_list(team) {
 	var second = Math.floor(time / 1000) % 60;
 	var occupied = 0;
 	var percent = floor(score[team] / score.sum());
+	console.log(percent);
 	for (var i = 0; i < 11; i++)if (occupation[i] == team + 1) occupied++;
 	return {
 		"type": "flex",
