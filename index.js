@@ -31,12 +31,6 @@ function reset() {
 	for (i = 0; i < 7; i++)occupation[i] = 0;
 }
 
-function get_rank(team) {
-	var i, rank = 0;
-	for (i = 0; i < 8; i++)if (occupation[i] > occupation[team]) rank++;
-	return rank;
-}
-
 function generate_list(team) {
 	var list = '一二三四五六七八';
 	var date = new Date();
@@ -131,7 +125,7 @@ function generate_list(team) {
 					"type": "button",
 					"action": {
 						"type": "message",
-						"label": "詳細世界局勢",
+						"label": "詳細局勢",
 						"text": "!詳情"
 					}
 				},
