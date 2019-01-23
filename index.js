@@ -40,7 +40,7 @@ function generate_list(team) {
 	var minute = Math.floor(time / 1000 / 60) % 60;
 	var second = Math.floor(time / 1000) % 60;
 	var occupied = 0;
-	for (var i = 0; i < 11; i++)if (occupation[i] == team) occupied++;
+	for (var i = 0; i < 11; i++)if (occupation[i] == team+1) occupied++;
 	return {
 		"type": "flex",
 		"altText": "[狀態]",
@@ -183,7 +183,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[0] == 0 ? "尚未被占領" : "被第" + list[occupation[0] + 1] + "組佔領"),
+							"text": (occupation[0] == 0 ? "尚未被占領" : "被第" + list[occupation[0]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -203,7 +203,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[1] == 0 ? "尚未被占領" : "被第" + list[occupation[1] + 1] + "組佔領"),
+							"text": (occupation[1] == 0 ? "尚未被占領" : "被第" + list[occupation[1]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -223,7 +223,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[2] == 0 ? "尚未被占領" : "被第" + list[occupation[2] + 1] + "組佔領"),
+							"text": (occupation[2] == 0 ? "尚未被占領" : "被第" + list[occupation[2]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -243,7 +243,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[3] == 0 ? "尚未被占領" : "被第" + list[occupation[3] + 1] + "組佔領"),
+							"text": (occupation[3] == 0 ? "尚未被占領" : "被第" + list[occupation[3]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -263,7 +263,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[4] == 0 ? "尚未被占領" : "被第" + list[occupation[4] + 1] + "組佔領"),
+							"text": (occupation[4] == 0 ? "尚未被占領" : "被第" + list[occupation[4]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -283,7 +283,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[5] == 0 ? "尚未被占領" : "被第" + list[occupation[5] + 1] + "組佔領"),
+							"text": (occupation[5] == 0 ? "尚未被占領" : "被第" + list[occupation[5]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -303,7 +303,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[6] == 0 ? "尚未被占領" : "被第" + list[occupation[6] + 1] + "組佔領"),
+							"text": (occupation[6] == 0 ? "尚未被占領" : "被第" + list[occupation[6]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -323,7 +323,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[7] == 0 ? "尚未被占領" : "被第" + list[occupation[7] + 1] + "組佔領"),
+							"text": (occupation[7] == 0 ? "尚未被占領" : "被第" + list[occupation[7]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -343,7 +343,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[8] == 0 ? "尚未被占領" : "被第" + list[occupation[8] + 1] + "組佔領"),
+							"text": (occupation[8] == 0 ? "尚未被占領" : "被第" + list[occupation[8]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -363,7 +363,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[9] == 0 ? "尚未被占領" : "被第" + list[occupation[9] + 1] + "組佔領"),
+							"text": (occupation[9] == 0 ? "尚未被占領" : "被第" + list[occupation[9]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -383,7 +383,7 @@ function generate_list_ops() {
 						},
 						{
 							"type": "text",
-							"text": (occupation[10] == 0 ? "尚未被占領" : "被第" + list[occupation[10] + 1] + "組佔領"),
+							"text": (occupation[10] == 0 ? "尚未被占領" : "被第" + list[occupation[10]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
@@ -605,7 +605,7 @@ bot.on('message', function (event) {
 				if (cmd.toUpperCase() === ('!SET')) {
 					if (tokens.length > 2) {
 						occupation[parseInt(tokens[1])] = parseInt(tokens[2]);
-						event.reply('Has set region ' + country_name[parseInt(tokens[1])] + 'occupied by team ' + tokens[2] );
+						event.reply('Has set region ' + country_name[parseInt(tokens[1])] + ' occupied by team ' + tokens[2] );
 						console.log(occupation);
 					}
 				} else if (cmd.toUpperCase() === ('!CLEAR')) {
