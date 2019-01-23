@@ -14,6 +14,7 @@ var occupation = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var score = [0, 0, 0, 0, 0, 0, 0, 0];
 var awake_time = 0;
 var country_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
+var map_url = "https://02imgmini.eastday.com/mobile/20181004/20181004114807_fa262ff7ce086aedcaa804d5d76c1d83_1.jpeg";
 
 function load_config() {
 	console.log('acquiring data');
@@ -66,7 +67,7 @@ function generate_list(team) {
 			},
 			"hero": {
 				"type": "image",
-				"url": "https://02imgmini.eastday.com/mobile/20181004/20181004114807_fa262ff7ce086aedcaa804d5d76c1d83_1.jpeg",
+				"url": map_url,
 				"size": "full",
 				"aspectRatio": "20:13",
 				"aspectMode": "cover"
@@ -626,6 +627,11 @@ bot.on('message', function (event) {
 					}
 				} else if (cmd.toUpperCase() === ('!RESET')) {
 					reset();
+				} else if(cmd.toUpperCase() === ('!UPDATE')){
+					if(tokens.length > 1){
+						map_url = tokens[1];
+						event.reply("Image has been updated")
+					}
 				} else if (cmd.toUpperCase() === ('!BROADCAST')) {
 					if (tokens.length > 2) {
 						var msg, i;
