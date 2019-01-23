@@ -429,9 +429,9 @@ function generate_list_all() {
 	var hour = Math.floor(time / 1000 / 60 / 60) % 24;
 	var minute = Math.floor(time / 1000 / 60) % 60;
 	var second = Math.floor(time / 1000) % 60;
-	if (hour < 10) hour = "0" + hour;
-	if (minute < 10) minute = "0" + minute;
-	if (second < 10) second = "0" + second;
+	if (hour < 10) hour = "0" + hour.toString();
+	if (minute < 10) minute = "0" + minute.toString();
+	if (second < 10) second = "0" + second.toString();
 	return {
 		"type": "flex",
 		"altText": "[狀態]",
