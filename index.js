@@ -49,7 +49,9 @@ function generate_list(team) {
 	var sum = 0;
 	for(var i = 0; i < 8; i++)sum += score[i];
 	console.log(sum);
-	var percent = (sum ? Math.round(score[team] / sum) : 0);
+	var percent;;
+	if(sum)percent = Math.round(score[team] / sum);
+	else percent = 0;
 	for (var i = 0; i < 11; i++)if (occupation[i] == team + 1) occupied++;
 	return {
 		"type": "flex",
