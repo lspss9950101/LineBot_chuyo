@@ -14,7 +14,7 @@ var occupation = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var score = [0, 0, 0, 0, 0, 0, 0, 0];
 var awake_time = 0;
 var country_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
-
+var story = [];
 var map_url = "https://02imgmini.eastday.com/mobile/20181004/20181004114807_fa262ff7ce086aedcaa804d5d76c1d83_1.jpeg";
 
 function load_config() {
@@ -30,6 +30,10 @@ function load_config() {
 	fs.readFile("country.txt", "utf8", function (err, data) {
 		if (err) throw err;
 		if (data) country_name = data.split(",");
+	});
+	fs.readFile("story.txt", "utf8", function (err, data) {
+		if (err) throw err;
+		if (data) story = data.split('|');
 	});
 }
 
@@ -1128,7 +1132,216 @@ bot.on('message', function (event) {
 			} else if (cmd.toUpperCase() === ('!HELP')) list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
 			if (cmd == '!詳情') event.reply(generate_list_ops());
 			if (cmd == '!骰子') event.reply('擲出了' + Math.floor(Math.random() * 6 + 1));
-			if (cmd == '咖哩湯之亂') event.reply('因咖哩湯之亂，使得大種子帝國一夕之間時局動盪不安，軍閥分裂，什麼永和王、霸凌王紛紛崛起，種子營王為此憂慮不已，擔心建國六百年的種子帝國，毀於一旦，情急之間發佈了種子營王求救書，希望尚在種子帝國統治的人民能夠團結一心，為由盛轉衰的種子帝國殺敵破陣，希望能逆轟高灰。\n');
+			if (cmd == '咖哩湯之亂') {
+				var msg = {
+					"type": "flex",
+					"altText": "[故事]",
+					"contents": {
+						"type": "bubble",
+						"styles": {
+							"footer": {
+								"separator": true
+							}
+						},
+						"body": {
+							"type": "box",
+							"layout": "vertical",
+							"contents": [
+								{
+									"type": "text",
+									"text": "咖哩湯之亂",
+									"weight": "bold",
+									"color": "#06a862",
+									"size": "xl"
+								},
+								{
+									"type": "text",
+									"text": story[0],
+									"color": "#555555",
+									"wrap": true,
+									"size": "lg"
+								},
+								{
+									"type": "separator",
+									"margin": "xxl"
+								}
+							]
+						},
+						"footer": {
+							"type": "box",
+							"layout": "horizontal",
+							"contents": [
+								{
+									"type": "spacer",
+									"size": "xxl"
+								},
+								{
+									"type": "text",
+									"text": "留言 “種子帝國大亂”  ，小編立即私訊！",
+									"weight": "bold",
+									"color": "#000000",
+									"size": "lg",
+									"align": "center"
+								}
+							]
+						}
+					}
+				};
+				event.reply(msg);
+			}
+			if (cmd == '種子帝國大亂') {
+				var msg = {
+					"type": "flex",
+					"altText": "[故事]",
+					"contents": {
+						"type": "bubble",
+						"styles": {
+							"footer": {
+								"separator": true
+							}
+						},
+						"body": {
+							"type": "box",
+							"layout": "vertical",
+							"contents": [
+								{
+									"type": "text",
+									"text": "種子帝國大亂",
+									"weight": "bold",
+									"color": "#06a862",
+									"size": "xl"
+								},
+								{
+									"type": "text",
+									"text": story[1],
+									"color": "#555555",
+									"wrap": true,
+									"size": "lg"
+								},
+								{
+									"type": "separator",
+									"margin": "xxl"
+								}
+							]
+						},
+						"footer": {
+							"type": "box",
+							"layout": "horizontal",
+							"contents": [
+								{
+									"type": "spacer",
+									"size": "xxl"
+								},
+								{
+									"type": "text",
+									"text": "趕緊輸入“灰高灰低不知道”來繼續了解故事666～",
+									"weight": "bold",
+									"color": "#000000",
+									"size": "lg",
+									"align": "center"
+								}
+							]
+						}
+					}
+				};
+				event.reply(msg);
+			}
+			if (cmd == '灰高灰低不知道') {
+				var msg = {
+					"type": "flex",
+					"altText": "[故事]",
+					"contents": {
+						"type": "bubble",
+						"styles": {
+							"footer": {
+								"separator": true
+							}
+						},
+						"body": {
+							"type": "box",
+							"layout": "vertical",
+							"contents": [
+								{
+									"type": "text",
+									"text": "灰高灰低不知道",
+									"weight": "bold",
+									"color": "#06a862",
+									"size": "xl"
+								},
+								{
+									"type": "text",
+									"text": story[2],
+									"color": "#555555",
+									"wrap": true,
+									"size": "lg"
+								},
+								{
+									"type": "separator",
+									"margin": "xxl"
+								}
+							]
+						},
+						"footer": {
+							"type": "box",
+							"layout": "horizontal",
+							"contents": [
+								{
+									"type": "spacer",
+									"size": "xxl"
+								},
+								{
+									"type": "text",
+									"text": "誓言：“擊敗水屁王的大水屁”",
+									"weight": "bold",
+									"color": "#000000",
+									"size": "lg",
+									"align": "center"
+								}
+							]
+						}
+					}
+				};
+				event.reply(msg);
+			}
+			if (cmd == '擊敗水屁王的大水屁') {
+				var msg = {
+					"type": "flex",
+					"altText": "[故事]",
+					"contents": {
+						"type": "bubble",
+						"styles": {
+							"footer": {
+								"separator": true
+							}
+						},
+						"body": {
+							"type": "box",
+							"layout": "vertical",
+							"contents": [
+								{
+									"type": "text",
+									"text": "擊敗水屁王的大水屁",
+									"weight": "bold",
+									"color": "#06a862",
+									"size": "xl"
+								},
+								{
+									"type": "text",
+									"text": story[3],
+									"color": "#555555",
+									"wrap": true,
+									"size": "lg"
+								},
+								{
+									"type": "separator",
+									"margin": "xxl"
+								}
+							]
+						}
+					}
+				};
+				event.reply(msg);
+			}
 		}
 	}
 }
