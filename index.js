@@ -592,6 +592,7 @@ bot.on('message', function (event) {
 					if (tokens.length > 2) {
 						if (parseInt(tokens[1]) > 0 && parseInt(tokens[1]) <= 8) {
 							score[parseInt(tokens[1]) - 1] += parseInt(tokens[2]);
+							console.log('Added ' + tokens[2] + ' points to team ' + tokens[1]);
 						}
 					}
 				} else if (cmd.toUpperCase() === ('!SET')) {
