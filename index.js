@@ -1052,7 +1052,6 @@ function getUrl(google_url) {
 		target = url[i + 1];
 		break;
 	}
-	console.log(target);
 	return 'https://drive.google.com/uc?export=view&id=' + target;
 }
 
@@ -1095,6 +1094,7 @@ bot.on('message', function (event) {
 				} else if (cmd.toUpperCase() === ('!UPDATE')) {
 					if (tokens.length > 1) {
 						map_url = getUrl(tokens[1]);
+						console.log(map_url);
 						event.reply("Image has been updated")
 					}
 				} else if (cmd.toUpperCase() === ('!BROADCAST')) {
