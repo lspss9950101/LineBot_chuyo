@@ -13,7 +13,7 @@ var groups = [];
 var occupation = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var score = [0, 0, 0, 0, 0, 0, 0, 0];
 var awake_time = 0;
-var country_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+var country_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
 
 function load_config() {
 	console.log('acquiring data');
@@ -46,12 +46,6 @@ function generate_list(team) {
 	var minute = Math.floor(time / 1000 / 60) % 60;
 	var second = Math.floor(time / 1000) % 60;
 	var occupied = 0;
-	var sum = 0;
-	for (var i = 0; i < 8; i++)sum += score[i];
-	var percent;;
-	if (sum) percent = Math.round(score[team] / sum);
-	else percent = 0;
-	console.log(percent);
 	for (var i = 0; i < 11; i++)if (occupation[i] == team + 1) occupied++;
 	return {
 		"type": "flex",
@@ -119,7 +113,7 @@ function generate_list(team) {
 					},
 					{
 						"type": "text",
-						"text": percent.toString() + '%',
+						"text": score[team].toString(),
 						"color": "#444444",
 						"size": "md",
 						"align": "end"
@@ -375,46 +369,6 @@ function generate_list_ops() {
 						{
 							"type": "text",
 							"text": (occupation[8] == 0 ? "尚未被占領" : "被第" + list[occupation[8]] + "組佔領"),
-							"color": "#444444",
-							"size": "md",
-							"align": "end"
-						}]
-					},
-
-					{
-						"type": "box",
-						"layout": "horizontal",
-						"margin": "xs",
-						"contents": [{
-							"type": "text",
-							"text": country_name[9],
-							"color": "#444444",
-							"size": "md",
-							"align": "start"
-						},
-						{
-							"type": "text",
-							"text": (occupation[9] == 0 ? "尚未被占領" : "被第" + list[occupation[9]] + "組佔領"),
-							"color": "#444444",
-							"size": "md",
-							"align": "end"
-						}]
-					},
-
-					{
-						"type": "box",
-						"layout": "horizontal",
-						"margin": "xs",
-						"contents": [{
-							"type": "text",
-							"text": country_name[10],
-							"color": "#444444",
-							"size": "md",
-							"align": "start"
-						},
-						{
-							"type": "text",
-							"text": (occupation[10] == 0 ? "尚未被占領" : "被第" + list[occupation[10]] + "組佔領"),
 							"color": "#444444",
 							"size": "md",
 							"align": "end"
