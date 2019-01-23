@@ -1181,6 +1181,7 @@ bot.on('message', function (event) {
 									"weight": "bold",
 									"color": "#000000",
 									"size": "lg",
+									"wrap": true,
 									"align": "center"
 								}
 							]
@@ -1238,6 +1239,7 @@ bot.on('message', function (event) {
 									"weight": "bold",
 									"color": "#000000",
 									"size": "lg",
+									"wrap": true,
 									"align": "center"
 								}
 							]
@@ -1295,6 +1297,7 @@ bot.on('message', function (event) {
 									"weight": "bold",
 									"color": "#000000",
 									"size": "lg",
+									"wrap": true,
 									"align": "center"
 								}
 							]
