@@ -143,7 +143,7 @@ function generate_list(team) {
 }
 
 function generate_list_ops() {
-	var list = "一二三四五六七八";
+	var list = "0一二三四五六七八";
 	var date = new Date();
 	var time = date.getTime();
 	time += (8 * 60 * 60 * 1000);
