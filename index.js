@@ -47,11 +47,11 @@ function generate_list(team) {
 	var second = Math.floor(time / 1000) % 60;
 	var occupied = 0;
 	var sum = 0;
-	for(var i = 0; i < 8; i++)sum += score[i];
-	console.log(sum);
+	for (var i = 0; i < 8; i++)sum += score[i];
 	var percent;;
-	if(sum)percent = Math.round(score[team] / sum);
+	if (sum) percent = Math.round(score[team] / sum);
 	else percent = 0;
+	console.log(percent);
 	for (var i = 0; i < 11; i++)if (occupation[i] == team + 1) occupied++;
 	return {
 		"type": "flex",
