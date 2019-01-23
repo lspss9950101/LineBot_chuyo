@@ -467,6 +467,18 @@ function list_command(event, hasPermission) {
 
 							{
 								"type": "text",
+								"text": "Add points to a team.",
+								"size": "lg",
+								"weight": "bold"
+							},
+							{
+								"type": "text",
+								"text": "usage : !add <team> <add>",
+								"size": "lg"
+							},
+
+							{
+								"type": "text",
 								"text": "Set the occupier of a region.",
 								"size": "lg",
 								"weight": "bold"
@@ -592,7 +604,7 @@ bot.on('message', function (event) {
 					if (tokens.length > 2) {
 						if (parseInt(tokens[1]) > 0 && parseInt(tokens[1]) <= 8) {
 							score[parseInt(tokens[1]) - 1] += parseInt(tokens[2]);
-							console.log('Added ' + tokens[2] + ' points to team ' + tokens[1]);
+							event.reply('Added ' + tokens[2] + ' points to team ' + tokens[1]);
 						}
 					}
 				} else if (cmd.toUpperCase() === ('!SET')) {
