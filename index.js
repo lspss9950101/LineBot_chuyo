@@ -516,6 +516,22 @@ function list_command(event, hasPermission) {
 
 							{
 								"type": "text",
+								"text": "Update the game map.",
+								"size": "lg",
+								"weight": "bold"
+							},
+							{
+								"type": "text",
+								"text": "usage : !update <url>",
+								"size": "lg"
+							},
+							{
+								"type": "separator",
+								"margin": "xl"
+							},
+
+							{
+								"type": "text",
 								"text": "Reset the status of all regions.",
 								"size": "lg",
 								"weight": "bold"
