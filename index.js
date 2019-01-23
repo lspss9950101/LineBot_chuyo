@@ -811,7 +811,7 @@ function generate_list_all() {
 						},
 						{
 							"type": "text",
-							"text": date.getFullYear() + "/" + (1 + date.getMonth()) + "/" + date.getDate() + " " + ("0" + hour).slice(-2) + ":" + ("0" + minute).slice(-2) + ":" + ("0" + second).slice(-2);,
+							"text": date.getFullYear() + "/" + (1 + date.getMonth()) + "/" + date.getDate() + " " + ("0" + hour).slice(-2) + ":" + ("0" + minute).slice(-2) + ":" + ("0" + second).slice(-2),
 							"color": "#aaaaaa",
 							"size": "xs",
 							"align": "end"
