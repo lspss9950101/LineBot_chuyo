@@ -1022,7 +1022,7 @@ function list_command(event, hasPermission) {
 					},
 					{
 						"type": "text",
-						"text": "用法 : 狀態",
+						"text": "用法 : !狀態",
 						"size": "lg"
 					},
 					{
@@ -1037,7 +1037,7 @@ function list_command(event, hasPermission) {
 					},
 					{
 						"type": "text",
-						"text": "用法 : 骰子",
+						"text": "用法 : !骰子",
 						"size": "lg"
 					}
 
