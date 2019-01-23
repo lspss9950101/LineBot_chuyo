@@ -842,7 +842,7 @@ function list_command(event, hasPermission) {
 	var command_list;
 	if (hasPermission) command_list = {
 		"type": "flex",
-		"altText": "幫助",
+		"altText": "[幫助]",
 		"contents": {
 			"type": "bubble",
 			"styles": {
