@@ -47,7 +47,7 @@ function generate_list(team) {
 	var second = Math.floor(time / 1000) % 60;
 	var occupied = 0;
 	var percent = (score.sum ? Math.round(score[team] / score.sum) : 0);
-	console.log(percent);
+	console.log(score.sum);
 	for (var i = 0; i < 11; i++)if (occupation[i] == team + 1) occupied++;
 	return {
 		"type": "flex",
@@ -633,7 +633,6 @@ bot.on('message', function (event) {
 					if (tokens.length > 2) {
 						if (parseInt(tokens[1]) > 0 && parseInt(tokens[1]) <= 8) {
 							score[parseInt(tokens[1])] += parseInt(tokens[2]);
-							console.log(score[parseInt(tokens[1])]);
 						}
 					}
 				} else if (cmd.toUpperCase() === ('!SET')) {
