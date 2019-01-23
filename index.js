@@ -609,7 +609,8 @@ bot.on('message', function (event) {
 					}
 				} else if (cmd.toUpperCase() === ('!CLEAR')) {
 					if (tokens.length > 1) {
-						occupation[tokens[1]] = 0;
+						occupation[parseInt(tokens[1])] = 0;
+						event.reply('Has clear region ' + country_name[parseInt(tokens[1])] + '\'s occupation');
 					}
 				} else if (cmd.toUpperCase() === ('!RESET')) {
 					reset();
