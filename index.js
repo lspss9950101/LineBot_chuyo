@@ -431,11 +431,11 @@ function generate_list_all() {
 	var second = Math.floor(time / 1000) % 60;
 	var str_hour, str_minute, str_second;
 	if (hour < 10) str_hour = "0" + hour.toString();
-	else str_hour = hour.toString();
+	//else str_hour = hour.toString();
 	if (minute < 10) str_minute = "0" + minute.toString();
-	else str_minute = minute.toString();
+	//else str_minute = minute.toString();
 	if (second < 10) str_second = "0" + second.toString();
-	else str_second = second.toString();
+	//else str_second = second.toString();
 	return {
 		"type": "flex",
 		"altText": "[狀態]",
