@@ -604,7 +604,8 @@ bot.on('message', function (event) {
 			if (ops.indexOf(sender) != -1) {
 				if (cmd.toUpperCase() === ('!SET')) {
 					if (tokens.length > 2) {
-						occupation[tokens[1]] = tokens[2];
+						occupation[parseInt(tokens[1])] = parseInt(tokens[2]);
+						event.reply('Has set region ' + country_name[parseInt(tokens[1])] + 'occupied by team ' + tokens[2] );
 					}
 				} else if (cmd.toUpperCase() === ('!CLEAR')) {
 					if (tokens.length > 1) {
