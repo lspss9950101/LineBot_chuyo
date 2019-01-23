@@ -1022,7 +1022,7 @@ function list_command(event, hasPermission) {
 					},
 					{
 						"type": "text",
-						"text": "用法 : !狀態",
+						"text": "用法 : !我愛種子營",
 						"size": "lg"
 					},
 					{
@@ -1118,10 +1118,116 @@ bot.on('message', function (event) {
 							for (i = 0; i < groups.length; i++)bot.push(groups[i], msg);
 						}
 					}
+				} else if (cmd.toUpperCase() === ('!STORY')) {
+					var msg = {
+						"type": "flex",
+						"altText": "[故事]",
+						"contents": {
+							"type": "bubble",
+							"styles": {
+								"footer": {
+									"separator": true
+								}
+							},
+							"body": {
+								"type": "box",
+								"layout": "vertical",
+								"contents": [
+									{
+										"type": "text",
+										"text": "楔子",
+										"weight": "bold",
+										"color": "#06a862",
+										"size": "xl"
+									},
+									{
+										"type": "text",
+										"text": story[4],
+										"color": "#555555",
+										"wrap": true,
+										"size": "lg"
+									}
+								]
+							},
+							"footer": {
+								"type": "box",
+								"layout": "horizontal",
+								"contents": [
+									{
+										"type": "spacer",
+										"size": "xxl"
+									},
+									{
+										"type": "text",
+										"text": "如欲知曉 請待下回分析 並留言 “咖哩湯之亂”",
+										"weight": "bold",
+										"color": "#000000",
+										"size": "lg",
+										"wrap": true,
+										"align": "center"
+									}
+								]
+							}
+						}
+					};
+					for(var i = 0; i < groups.length; i++)bot.push(groups[i], msg);
+				} else if (cmd.toUpperCase() === ('!RULE')){
+					var msg = {
+						"type": "flex",
+						"altText": "[故事]",
+						"contents": {
+							"type": "bubble",
+							"styles": {
+								"footer": {
+									"separator": true
+								}
+							},
+							"body": {
+								"type": "box",
+								"layout": "vertical",
+								"contents": [
+									{
+										"type": "text",
+										"text": "注意！",
+										"weight": "bold",
+										"color": "#06a862",
+										"size": "xl"
+									},
+									{
+										"type": "text",
+										"text": story[5],
+										"color": "#555555",
+										"wrap": true,
+										"size": "lg"
+									}
+								]
+							},
+							"footer": {
+								"type": "box",
+								"layout": "horizontal",
+								"contents": [
+									{
+										"type": "spacer",
+										"size": "xxl"
+									},
+									{
+										"type": "text",
+										"text": "使用說明：欲查詢目前競爭狀況請輸入“！我愛種子營”，即時檢視各隊菁英狀況。",
+										"weight": "bold",
+										"color": "#000000",
+										"size": "lg",
+										"wrap": true,
+										"align": "center"
+									}
+								]
+							}
+						}
+					};
+					for(var i = 0; i < groups.length; i++)bot.push(groups[i], msg);
 				}
 			}
 			//User commands
-			if (cmd.toUpperCase() === ('!LIST') || cmd == '!狀態' || cmd == '！狀態') {
+			if (cmd.toUpperCase() === ('!LIST') || cmd == '!我愛種子營' || cmd == '！我愛種子營') {
 				var rp_msg;
 				if (ops.indexOf(sender) != -1 && group == undefined) rp_msg = generate_list_all();
 				else if (group != undefined) {
