@@ -476,6 +476,10 @@ function list_command(event, hasPermission) {
 								"text": "usage : !add <team> <add>",
 								"size": "lg"
 							},
+							{
+								"type": "separator",
+								"margin": "xl"
+							},
 
 							{
 								"type": "text",
@@ -609,7 +613,8 @@ bot.on('message', function (event) {
 					}
 				} else if (cmd.toUpperCase() === ('!SET')) {
 					if (tokens.length > 2) {
-						occupation[parseInt(tokens[1])] = parseInt(tokens[2]);
+						var index = country_name.indexOf(tokens[1]);
+						occupation[index] = parseInt(tokens[2]);
 						event.reply('Has set region ' + country_name[parseInt(tokens[1])] + ' occupied by team ' + tokens[2]);
 						console.log(occupation);
 					}
