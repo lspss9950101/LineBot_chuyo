@@ -429,6 +429,9 @@ function generate_list_all() {
 	var hour = Math.floor(time / 1000 / 60 / 60) % 24;
 	var minute = Math.floor(time / 1000 / 60) % 60;
 	var second = Math.floor(time / 1000) % 60;
+	if (hour < 10) hour = "0" + hour;
+	if (minute < 10) minute = "0" + minute;
+	if (second < 10) second = "0" + second;
 	return {
 		"type": "flex",
 		"altText": "[狀態]",
@@ -811,7 +814,7 @@ function generate_list_all() {
 						},
 						{
 							"type": "text",
-							"text": date.getFullYear() + "/" + (1 + date.getMonth()) + "/" + date.getDate() + " " + ("0" + hour).slice(-2) + ":" + ("0" + minute).slice(-2) + ":" + ("0" + second).slice(-2),
+							"text": date.getFullYear() + "/" + (1 + date.getMonth()) + "/" + date.getDate() + " " + hour + ":" + minute + ":" + second,
 							"color": "#aaaaaa",
 							"size": "xs",
 							"align": "end"
