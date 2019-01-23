@@ -1031,7 +1031,7 @@ bot.on('message', function (event) {
 		var msg = event.message.text;
 		var sender = event.source.userId;
 		var group = event.source.groupId;
-		console.log("Group:" + group + " User:" + sender + " msg:" + msg);
+		console.log(">>Group:" + group + " User:" + sender + " msg:" + msg);
 		load_config();
 		if (msg != null) {
 			var tokens = msg.split(" ");
@@ -1072,7 +1072,6 @@ bot.on('message', function (event) {
 							msg = "";
 							for (i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
 							for (i = 0; i < groups.length; i++)bot.push(groups[i], msg);
-							console.log(msg);
 						} else if (tokens[1].toUpperCase() === 'IMAGE') {
 							var url = tokens[2].split('/');
 							for (i = 0; i < url.length; i++)if (url[i] == 'd') {
