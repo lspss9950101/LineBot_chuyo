@@ -1160,10 +1160,6 @@ bot.on('message', function (event) {
 									"color": "#555555",
 									"wrap": true,
 									"size": "lg"
-								},
-								{
-									"type": "separator",
-									"margin": "xxl"
 								}
 							]
 						},
@@ -1218,10 +1214,6 @@ bot.on('message', function (event) {
 									"color": "#555555",
 									"wrap": true,
 									"size": "lg"
-								},
-								{
-									"type": "separator",
-									"margin": "xxl"
 								}
 							]
 						},
@@ -1276,10 +1268,6 @@ bot.on('message', function (event) {
 									"color": "#555555",
 									"wrap": true,
 									"size": "lg"
-								},
-								{
-									"type": "separator",
-									"margin": "xxl"
 								}
 							]
 						},
@@ -1334,10 +1322,6 @@ bot.on('message', function (event) {
 									"color": "#555555",
 									"wrap": true,
 									"size": "lg"
-								},
-								{
-									"type": "separator",
-									"margin": "xxl"
 								}
 							]
 						}
