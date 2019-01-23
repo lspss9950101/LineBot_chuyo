@@ -1052,6 +1052,7 @@ function getUrl(google_url) {
 		target = url[i + 1];
 		break;
 	}
+	console.log(target);
 	return 'https://drive.google.com/uc?export=view&id=' + target;
 }
 
