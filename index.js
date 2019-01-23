@@ -421,6 +421,418 @@ function generate_list_ops() {
 	};
 }
 
+function generate_list_all() {
+	var list = "0一二三四五六七八";
+	var date = new Date();
+	var time = date.getTime();
+	time += (8 * 60 * 60 * 1000);
+	var hour = Math.floor(time / 1000 / 60 / 60) % 24;
+	var minute = Math.floor(time / 1000 / 60) % 60;
+	var second = Math.floor(time / 1000) % 60;
+	return {
+		"type": "flex",
+		"altText": "[狀態]",
+		"contents": {
+			"type": "bubble",
+			"header": {
+				"type": "box",
+				"layout": "horizontal",
+				"contents": [{
+					"type": "text",
+					"text": "當前世界局勢分佈",
+					"weight": "bold",
+					"color": "#06a862",
+					"size": "lg"
+				}]
+			},
+			"body": {
+				"type": "box",
+				"layout": "vertical",
+				"contents": [
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[0],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[0] == 0 ? "尚未被占領" : "被第" + list[occupation[0]] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[1],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[1] == 0 ? "尚未被占領" : "被第" + list[occupation[1]] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[2],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[2] == 0 ? "尚未被占領" : "被第" + list[occupation[2]] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[3],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[3] == 0 ? "尚未被占領" : "被第" + list[occupation[3]] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[4],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[4] == 0 ? "尚未被占領" : "被第" + list[occupation[4]] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[5],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[5] == 0 ? "尚未被占領" : "被第" + list[occupation[5]] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[6],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[6] == 0 ? "尚未被占領" : "被第" + list[occupation[6]] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[7],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[7] == 0 ? "尚未被占領" : "被第" + list[occupation[7]] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": country_name[8],
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": (occupation[8] == 0 ? "尚未被占領" : "被第" + list[occupation[8]] + "組佔領"),
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": "第一組",
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": score[0] + "分",
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": "第二組",
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": score[1] + "分",
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": "第三組",
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": score[2] + "分",
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": "第四組",
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": score[3] + "分",
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": "第五組",
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": score[4] + "分",
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": "第六組",
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": score[5] + "分",
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": "第七組",
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": score[6] + "分",
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "xs",
+						"contents": [{
+							"type": "text",
+							"text": "第八張",
+							"color": "#444444",
+							"size": "md",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": score[7] + "分",
+							"color": "#444444",
+							"size": "md",
+							"align": "end"
+						}]
+					},
+
+					{
+						"type": "separator",
+						"margin": "xxl"
+					},
+					{
+						"type": "box",
+						"layout": "horizontal",
+						"margin": "md",
+						"contents": [{
+							"type": "text",
+							"text": "更新時間：",
+							"color": "#aaaaaa",
+							"size": "xs",
+							"align": "start"
+						},
+						{
+							"type": "text",
+							"text": date.getFullYear() + "/" + (1 + date.getMonth()) + "/" + date.getDate() + " " + hour + ":" + minute + ":" + second,
+							"color": "#aaaaaa",
+							"size": "xs",
+							"align": "end"
+						},
+						{
+							"type": "separator",
+							"margin": "xl"
+						}]
+					}]
+			},
+			"footer": {
+				"type": "box",
+				"layout": "horizontal",
+				"contents": [{
+					"type": "button",
+					"action": {
+						"type": "message",
+						"label": "更新",
+						"text": "!list"
+					}
+				}]
+			}
+		}
+	};
+}
+
 function list_command(event, hasPermission) {
 	var command_list;
 	if (hasPermission) command_list = {
@@ -643,8 +1055,8 @@ bot.on('message', function (event) {
 					}
 				} else if (cmd.toUpperCase() === ('!RESET')) {
 					reset();
-				} else if(cmd.toUpperCase() === ('!UPDATE')){
-					if(tokens.length > 1){
+				} else if (cmd.toUpperCase() === ('!UPDATE')) {
+					if (tokens.length > 1) {
 						map_url = tokens[1];
 						event.reply("Image has been updated")
 					}
@@ -675,7 +1087,7 @@ bot.on('message', function (event) {
 			//User commands
 			if (cmd.toUpperCase() === ('!LIST') || cmd == '!狀態') {
 				var rp_msg;
-				if (ops.indexOf(sender) != -1 && group == undefined) rp_msg = generate_list_ops();
+				if (ops.indexOf(sender) != -1 && group == undefined) rp_msg = generate_list_all();
 				else if (group != undefined) {
 					var index = groups.indexOf(group);
 					rp_msg = generate_list(index);
@@ -683,6 +1095,7 @@ bot.on('message', function (event) {
 				event.reply(rp_msg);
 			} else if (cmd.toUpperCase() === ('!HELP')) list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
 			if (cmd == '!詳情') event.reply(generate_list_ops());
+			if (cmd == '!骰子') event.reply('擲出了' + round(Math.random() * 6 + 1));
 		}
 	}
 }
