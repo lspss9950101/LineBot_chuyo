@@ -46,6 +46,7 @@ function generate_list(team) {
 	var minute = Math.floor(time / 1000 / 60) % 60;
 	var second = Math.floor(time / 1000) % 60;
 	var occupied = 0;
+	console.log(scroe[team]);
 	for (var i = 0; i < 11; i++)if (occupation[i] == team + 1) occupied++;
 	return {
 		"type": "flex",
