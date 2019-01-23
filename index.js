@@ -63,7 +63,7 @@ function generate_list(team) {
 				"size": "full",
 				"aspectRatio": "20:13",
 				"aspectMode": "cover"
-			},/*
+			},
 			"body": {
 				"type": "box",
 				"layout": "vertical",
@@ -75,7 +75,7 @@ function generate_list(team) {
 					"size": "xxl",
 					"margin": "md"
 				},
-				{
+				/*{
 					"type": "box",
 					"layout": "horizontal",
 					"margin": "xs",
@@ -97,7 +97,7 @@ function generate_list(team) {
 				{
 					"type": "separator",
 					"margin": "xxl"
-				},
+				},*/
 				{
 					"type": "box",
 					"layout": "horizontal",
@@ -117,7 +117,7 @@ function generate_list(team) {
 						"align": "end"
 					}]
 				}]
-			},*/
+			},
 			"footer": {
 				"type": "box",
 				"layout": "horizontal",
