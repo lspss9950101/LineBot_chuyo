@@ -15,7 +15,7 @@ var score = [0, 0, 0, 0, 0, 0, 0, 0];
 var awake_time = 0;
 var country_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
 var story = [];
-var map_url = "https://02imgmini.eastday.com/mobile/20181004/20181004114807_fa262ff7ce086aedcaa804d5d76c1d83_1.jpeg";
+var map_url = getUrl("https://drive.google.com/file/d/1gawWtMLbTQ5ztgi8VzDcI-Whu8jJgMj2/view?usp=sharing");
 
 function load_config() {
 	console.log('acquiring data');
