@@ -1022,7 +1022,7 @@ function list_command(event, hasPermission) {
 					},
 					{
 						"type": "text",
-						"text": "用法 : !狀態",
+						"text": "用法 : 狀態",
 						"size": "lg"
 					},
 					{
@@ -1037,7 +1037,7 @@ function list_command(event, hasPermission) {
 					},
 					{
 						"type": "text",
-						"text": "用法 : !骰子",
+						"text": "用法 : 骰子",
 						"size": "lg"
 					}
 
@@ -1121,7 +1121,7 @@ bot.on('message', function (event) {
 				}
 			}
 			//User commands
-			if (cmd.toUpperCase() === ('!LIST') || cmd == '!狀態') {
+			if (cmd.toUpperCase() === ('!LIST') || cmd == '!狀態' || cmd == '！狀態') {
 				var rp_msg;
 				if (ops.indexOf(sender) != -1 && group == undefined) rp_msg = generate_list_all();
 				else if (group != undefined) {
@@ -1130,8 +1130,8 @@ bot.on('message', function (event) {
 				}
 				event.reply(rp_msg);
 			} else if (cmd.toUpperCase() === ('!HELP')) list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
-			if (cmd == '!詳情') event.reply(generate_list_ops());
-			if (cmd == '!骰子') event.reply('擲出了' + Math.floor(Math.random() * 6 + 1));
+			if (cmd == '!詳情' || cmd == '！詳情') event.reply(generate_list_ops());
+			if (cmd == '!骰子' || cmd == '！骰子') event.reply('擲出了' + Math.floor(Math.random() * 6 + 1));
 			if (cmd == '咖哩湯之亂') {
 				var msg = {
 					"type": "flex",
