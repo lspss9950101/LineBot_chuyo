@@ -63,7 +63,7 @@ function generate_list(team) {
 				"size": "full",
 				"aspectRatio": "20:13",
 				"aspectMode": "cover"
-			},
+			},/*
 			"body": {
 				"type": "box",
 				"layout": "vertical",
@@ -117,7 +117,7 @@ function generate_list(team) {
 						"align": "end"
 					}]
 				}]
-			},
+			},*/
 			"footer": {
 				"type": "box",
 				"layout": "horizontal",
