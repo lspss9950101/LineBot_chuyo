@@ -75,7 +75,7 @@ function generate_list(team) {
 					"size": "xxl",
 					"margin": "md"
 				},
-				/*{
+				{
 					"type": "box",
 					"layout": "horizontal",
 					"margin": "xs",
@@ -88,7 +88,7 @@ function generate_list(team) {
 					},
 					{
 						"type": "text",
-						"text": occupied,
+						"text": occupied.toString(),
 						"color": "#444444",
 						"size": "md",
 						"align": "end"
@@ -97,7 +97,7 @@ function generate_list(team) {
 				{
 					"type": "separator",
 					"margin": "xxl"
-				},*/
+				},
 				{
 					"type": "box",
 					"layout": "horizontal",
