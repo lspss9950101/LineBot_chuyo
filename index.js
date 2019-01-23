@@ -1047,11 +1047,12 @@ function list_command(event, hasPermission) {
 
 function getUrl(google_url) {
 	var url = google_url.split('/');
-	for (i = 0; i < google_url.length; i++)if (google_url[i] == 'd') {
-		url = google_url[i + 1];
+	var target;
+	for (i = 0; i < url.length; i++)if (url[i] == 'd') {
+		target = url[i + 1];
 		break;
 	}
-	return 'https://drive.google.com/uc?export=view&id=' + url;
+	return 'https://drive.google.com/uc?export=view&id=' + target;
 }
 
 load_config();
