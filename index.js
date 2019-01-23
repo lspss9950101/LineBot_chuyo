@@ -14,6 +14,7 @@ var occupation = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 var score = [0, 0, 0, 0, 0, 0, 0, 0];
 var awake_time = 0;
 var country_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
+
 var map_url = "https://02imgmini.eastday.com/mobile/20181004/20181004114807_fa262ff7ce086aedcaa804d5d76c1d83_1.jpeg";
 
 function load_config() {
@@ -1044,6 +1045,15 @@ function list_command(event, hasPermission) {
 	event.reply(command_list);
 }
 
+function getUrl(google_url) {
+	var url = google_url.split('/');
+	for (i = 0; i < url.length; i++)if (url[i] == 'd') {
+		url = url[i + 1];
+		break;
+	}
+	return 'https://drive.google.com/uc?export=view&id=' + url;
+}
+
 load_config();
 
 bot.on('message', function (event) {
@@ -1082,7 +1092,7 @@ bot.on('message', function (event) {
 					reset();
 				} else if (cmd.toUpperCase() === ('!UPDATE')) {
 					if (tokens.length > 1) {
-						map_url = tokens[1];
+						map_url = getUrl(tokens[1]);
 						event.reply("Image has been updated")
 					}
 				} else if (cmd.toUpperCase() === ('!BROADCAST')) {
@@ -1093,15 +1103,11 @@ bot.on('message', function (event) {
 							for (i = 2; i < tokens.length; i++)msg += (tokens[i] + ' ');
 							for (i = 0; i < groups.length; i++)bot.push(groups[i], msg);
 						} else if (tokens[1].toUpperCase() === 'IMAGE') {
-							var url = tokens[2].split('/');
-							for (i = 0; i < url.length; i++)if (url[i] == 'd') {
-								url = url[i + 1];
-								break;
-							}
+							var url = getUrl(tokens[2]);
 							msg = {
 								type: 'image',
-								originalContentUrl: 'https://drive.google.com/uc?export=view&id=' + url,
-								previewImageUrl: 'https://drive.google.com/uc?export=view&id=' + url
+								originalContentUrl: url,
+								previewImageUrl: url
 							}
 							for (i = 0; i < groups.length; i++)bot.push(groups[i], msg);
 						}
@@ -1120,6 +1126,7 @@ bot.on('message', function (event) {
 			} else if (cmd.toUpperCase() === ('!HELP')) list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
 			if (cmd == '!詳情') event.reply(generate_list_ops());
 			if (cmd == '!骰子') event.reply('擲出了' + Math.floor(Math.random() * 6 + 1));
+			if (cmd == '咖哩湯之亂') event.reply('因咖哩湯之亂，使得大種子帝國一夕之間時局動盪不安，軍閥分裂，什麼永和王、霸凌王紛紛崛起，種子營王為此憂慮不已，擔心建國六百年的種子帝國，毀於一旦，情急之間發佈了種子營王求救書，希望尚在種子帝國統治的人民能夠團結一心，為由盛轉衰的種子帝國殺敵破陣，希望能逆轟高灰。\n');
 		}
 	}
 }
