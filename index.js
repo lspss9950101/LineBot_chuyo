@@ -15,7 +15,8 @@ var score = [0, 0, 0, 0, 0, 0, 0, 0];
 var awake_time = 0;
 var country_name = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
 
-var map_url = "https://02imgmini.eastday.com/mobile/20181004/20181004114807_fa262ff7ce086aedcaa804d5d76c1d83_1.jpeg";
+var map_url = "http://drive.google.com/uc?export=view&id=0B1i9wyzQYGw0NExqeFRvWmFBb2c";
+//var map_url = "https://02imgmini.eastday.com/mobile/20181004/20181004114807_fa262ff7ce086aedcaa804d5d76c1d83_1.jpeg";
 
 function load_config() {
 	console.log('acquiring data');
@@ -1052,7 +1053,7 @@ function getUrl(google_url) {
 		target = url[i + 1];
 		break;
 	}
-	return 'http://drive.google.com/uc?export=view&id=' + target;
+	return 'https://drive.google.com/uc?export=view&id=' + target;
 }
 
 load_config();
