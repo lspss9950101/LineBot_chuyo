@@ -69,7 +69,7 @@ function generate_list(team) {
 				"layout": "vertical",
 				"contents": [{
 					"type": "text",
-					"text": "第" + list[team] + "組",
+					"text": ("第" + list[team] + "組"),
 					"color": "#0f4c32",
 					"weight": "bold",
 					"size": "xxl",
