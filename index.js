@@ -630,6 +630,11 @@ function generate_list_all() {
 					},
 
 					{
+						"type": "separator",
+						"margin": "xxl"
+					},
+
+					{
 						"type": "box",
 						"layout": "horizontal",
 						"margin": "xs",
@@ -775,7 +780,7 @@ function generate_list_all() {
 						"margin": "xs",
 						"contents": [{
 							"type": "text",
-							"text": "第八張",
+							"text": "第八組",
 							"color": "#444444",
 							"size": "md",
 							"align": "start"
