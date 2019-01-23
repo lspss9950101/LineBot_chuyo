@@ -591,7 +591,7 @@ bot.on('message', function (event) {
 				if (cmd.toUpperCase() === ('!ADD')) {
 					if (tokens.length > 2) {
 						if (parseInt(tokens[1]) > 0 && parseInt(tokens[1]) <= 8) {
-							score[parseInt(tokens[1])] += parseInt(tokens[2]);
+							score[parseInt(tokens[1]) - 1] += parseInt(tokens[2]);
 						}
 					}
 				} else if (cmd.toUpperCase() === ('!SET')) {
