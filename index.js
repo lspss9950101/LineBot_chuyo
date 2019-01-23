@@ -606,6 +606,7 @@ bot.on('message', function (event) {
 					if (tokens.length > 2) {
 						occupation[parseInt(tokens[1])] = parseInt(tokens[2]);
 						event.reply('Has set region ' + country_name[parseInt(tokens[1])] + 'occupied by team ' + tokens[2] );
+						console.log(occupation);
 					}
 				} else if (cmd.toUpperCase() === ('!CLEAR')) {
 					if (tokens.length > 1) {
