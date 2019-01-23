@@ -119,7 +119,7 @@ function generate_list(team) {
 					"margin": "xs",
 					"contents": [{
 						"type": "text",
-						"text": "兵力：",
+						"text": "分數：",
 						"color": "#444444",
 						"size": "md",
 						"align": "start"
