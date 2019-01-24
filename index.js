@@ -1082,7 +1082,7 @@ bot.on('message', function (event) {
 					}
 				} else if (cmd.toUpperCase() === ('!SET')) {
 					if (tokens.length > 2) {
-						if (tokens[1] > 0 && tokens[1] <= 9) {
+						if (tokens[1] >= 0 && tokens[1] < 9) {
 							occupation[tokens[1]] = parseInt(tokens[2]);
 							event.reply('Has set region ' + country_name[tokens[1]] + ' occupied by team ' + tokens[2]);
 						}
