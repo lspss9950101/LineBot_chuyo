@@ -1232,6 +1232,7 @@ bot.on('message', function (event) {
 				if (ops.indexOf(sender) != -1 && group == undefined) rp_msg = generate_list_all();
 				else if (group != undefined) {
 					var index = groups.indexOf(group);
+					console.log(index);
 					if(index >= 0 || index < 8)rp_msg = generate_list(index);
 				}
 				event.reply(rp_msg);
