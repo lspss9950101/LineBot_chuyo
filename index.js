@@ -1232,7 +1232,7 @@ bot.on('message', function (event) {
 				if (ops.indexOf(sender) != -1 && group == undefined) rp_msg = generate_list_all();
 				else if (group != undefined) {
 					var index = groups.indexOf(group);
-					rp_msg = generate_list(index);
+					if(index != -1)rp_msg = generate_list(index);
 				}
 				event.reply(rp_msg);
 			} else if (cmd.toUpperCase() === ('!HELP')) list_command(event, (ops.indexOf(sender) != -1 && group == undefined));
