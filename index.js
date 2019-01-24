@@ -1083,6 +1083,7 @@ bot.on('message', function (event) {
 				} else if (cmd.toUpperCase() === ('!SET')) {
 					if (tokens.length > 2) {
 						var index = country_name.indexOf(tokens[1]);
+						console.log(index);
 						if (index != -1) {
 							occupation[index] = parseInt(tokens[2]);
 							event.reply('Has set region ' + country_name[index] + ' occupied by team ' + tokens[2]);
