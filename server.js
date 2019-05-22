@@ -3,9 +3,9 @@ var express = require('express');
 var http = require("http");
 var fs = require('fs');
 var bot = linebot({
-	channelId: 'ChuyoBot',
-	channelSecret: 'edaa7868492d56932953d60315a69312',
-	channelAccessToken: 'K4CGvZ4EnqBSawsF1mOgNUm/STJ0nPjvxfRzq4CPOD7AyRoklVvozMw9bBYya+VaM+Jfd6Knr9zM93Wu/Hn+g8vFWwCgAn5edVd9sJ8eteFmSEilIbWJ5Ev/Ucr5X8VHfEPFCwCPZx1ByR90h5M4dQdB04t89/1O/w1cDnyilFU='
+	channelId: ,
+	channelSecret: ,
+	channelAccessToken: 
 });
 
 var ops = [];
